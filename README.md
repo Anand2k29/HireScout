@@ -175,5 +175,30 @@ Test suites include:
 
 ---
 
+## 👥 Team Binary
+
+> **SerpApi India Hackathon 2026 Entry**
+
+| Team Role | Member Name | GitHub Profile |
+| :--- | :--- | :--- |
+| ⚡ **Lead AI & Systems Engineer** | **Anand Minejes** | [@Anand2k29](https://github.com/Anand2k29) |
+| 🚀 **Core Engineer & Full-Stack Developer** | **Jyotasana** | Contributor |
+
+<br/>
+
+```
+  ____  _                               
+ | __ )(_)_ __   __ _ _ __ _   _        
+ |  _ \| | '_ \ / _` | '__| | | |       
+ | |_) | | | | | (_| | |  | |_| |  _ _ 
+ |____/|_|_| |_|\__,_|_|   \__, | (_|_)
+                           |___/        
+```
+
+*“Transforming job discovery & application workflows into an autonomous 1-command stream.”*
+
+---
+
 ## 📄 License
-MIT License. Built for SerpApi India Hackathon 2026.
+MIT License. Built with ❤️ for **SerpApi India Hackathon 2026**.
+
