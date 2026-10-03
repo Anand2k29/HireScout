@@ -117,8 +117,8 @@ async function showMenu() {
 
   console.log(`
 ${C.cyan}╭──────────────────────────────────────────────────────────────────────────╮${C.r}
-${C.cyan}│${C.r}  ${C.b}${C.cyan}🤖  K A I R O  —  Autonomous Resume & Job Application Agent${C.r}         ${C.cyan}│${C.r}
-${C.cyan}│${C.r}  ${C.d}Precision Timing (Kairos) • 9-Stage Tailoring • Fact-Checked Guardrails${C.r} ${C.cyan}│${C.r}
+${C.cyan}│${C.r}  ${C.b}${C.cyan}💼  H I R E S C O U T  —  AI Job Discovery & Application Agent${C.r}      ${C.cyan}│${C.r}
+${C.cyan}│${C.r}  ${C.d}SerpApi Powered • 7-Signal Matching • Live Visual Playwright Auto-Apply${C.r} ${C.cyan}│${C.r}
 ${C.cyan}╰──────────────────────────────────────────────────────────────────────────╯${C.r}
 `);
 
@@ -141,8 +141,8 @@ ${C.cyan}╰──────────────────────�
   console.log(`  ${C.cyan}─── 👤 CANDIDATE PROFILE & VOICE ASSISTANT ────────────────────────────────${C.r}`);
   console.log(`  ${C.b}${C.cyan}[4]${C.r} ${C.b}Candidate Profile & Verified Evidence Setup${C.r}`);
   console.log(`      ${C.d}Candidate skills, experience years, verified projects & contact info${C.r}`);
-  console.log(`  ${C.b}${C.cyan}[5]${C.r} ${C.b}KAIRO JARVIS Hands-Free Voice Mode${C.r}`);
-  console.log(`      ${C.d}Activate "Hello KAIRO" wake-word or tap 3x Spacebar for voice control${C.r}`);
+  console.log(`  ${C.b}${C.cyan}[5]${C.r} ${C.b}HireScout Hands-Free Voice Mode${C.r}`);
+  console.log(`      ${C.d}Activate "Hey Scout" wake-word or tap 3x Spacebar for voice control${C.r}`);
   console.log(`  ${C.b}${C.cyan}[6]${C.r} ${C.b}JARVIS Voice Acoustic Calibration${C.r}`);
   console.log(`      ${C.d}Calibrate pitch, speech rate & acoustic voice profile${C.r}\n`);
 
@@ -322,7 +322,7 @@ function getFallbackPlan(goal, profile) {
 
 async function askPlanner(goal, profile) {
   const profileContext = getAutoFillContext(profile);
-  const systemPrompt = `You are the self-learning browser automation planner for KAIRO (built on webcmd-browser architecture).
+  const systemPrompt = `You are the self-learning browser automation planner for HireScout (built on webcmd-browser architecture).
 
 Given a user goal, decompose it into an ordered list of atomic browser steps.
 
@@ -377,7 +377,7 @@ ${profileContext ? `User profile for auto-filling:\n${profileContext}` : ''}`;
 // ─── Worker (uses Smart DOM & webcmd locators for speed) ──────────────
 async function askWorker(stepDescription, smartDOM, profile) {
   const profileContext = getAutoFillContext(profile);
-  const systemPrompt = `You are a browser-action executor for KAIRO (webcmd-browser engine).
+  const systemPrompt = `You are a browser-action executor for HireScout (webcmd-browser engine).
 
 Given a step description and page elements, return the exact action to execute.
 
@@ -725,7 +725,7 @@ async function executeStepSmart(context, pageInput, stepDescription, recordedAct
   await page.bringToFront();
   const stepLower = stepDescription.toLowerCase().trim();
 
-  // ── KAIRO narration ──
+  // ── HireScout narration ──
   announceStep(stepDescription);
 
   // ── Meta-steps ──
@@ -941,31 +941,31 @@ async function executeStepSmart(context, pageInput, stepDescription, recordedAct
 // ─── Main ────────────────────────────────────────────────────────────
 async function runSlabRoute() {
   const startTime = Date.now();
-  // ── KAIRO Voice Detection ──
+  // ── HireScout Voice Detection ──
   const voiceOK = checkVoiceAvailability();
 
   console.log(`
 ${C.cyan}──────────────────────────────────────────────────────────────${C.r}
-  ${C.b}${C.yellow}🤖  K.A.I.R.O  —  Kairos Opportune Timing Assistant${C.r}
-  ${C.d}Voice-Activated • Self-Learning • Resume & Application Agent${C.r}
+  ${C.b}${C.yellow}💼  H I R E S C O U T  —  AI Job Discovery Agent${C.r}
+  ${C.d}SerpApi Powered • 7-Signal Matching • Voice-Activated${C.r}
 ${C.cyan}──────────────────────────────────────────────────────────────${C.r}
 `);
 
   const forceVoice = process.argv.includes("--voice") || process.argv.includes("-v");
 
   if (voiceOK) {
-    console.log(`  ${C.green}✅ KAIRO voice assistant is ready!${C.r}`);
+    console.log(`  ${C.green}✅ HireScout voice assistant is ready!${C.r}`);
 
     let mode = forceVoice ? "voice" : null;
 
     if (!forceVoice) {
-      console.log(`  ${C.cyan}🎤 Say "${C.b}Hello KAIRO${C.r}${C.cyan}" or press ${C.b}3x Spacebar${C.r}${C.cyan} to wake KAIRO (or ${C.b}Enter${C.r}${C.cyan} for keyboard)...${C.r}\n`);
+      console.log(`  ${C.cyan}🎤 Say "${C.b}Hey Scout${C.r}${C.cyan}" or press ${C.b}3x Spacebar${C.r}${C.cyan} to wake HireScout (or ${C.b}Enter${C.r}${C.cyan} for keyboard)...${C.r}\n`);
       mode = await detectWakeWordOrKeypress(7);
     }
 
     if (mode === "voice") {
       setVoiceMode(true);
-      console.log(`\n  ${C.green}${C.b}🤖 KAIRO activated! Voice mode enabled.${C.r}\n`);
+      console.log(`\n  ${C.green}${C.b}💼 HireScout activated! Voice mode enabled.${C.r}\n`);
       greetUser();
     } else {
       console.log(`\n  ${C.d}⌨️  Keyboard mode. (Select option 5 to switch to voice anytime)${C.r}\n`);
@@ -1102,7 +1102,7 @@ ${C.cyan}───────────────────────�
 
   try {
     await injectOverlay(page);
-    await updateOverlayStatus(page, "🧠 KAIRO Planning & Auto-Filling...");
+    await updateOverlayStatus(page, "🧠 HireScout Planning & Auto-Filling...");
   } catch {}
 
   log("📋", "Planning workflow...", "cyan");

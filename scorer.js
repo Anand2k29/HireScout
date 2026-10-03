@@ -17,6 +17,9 @@ export function calculateSkillsScore(userSkills = [], jobSkills = []) {
   if (!userSkills || userSkills.length === 0) {
     userSkills = ["JavaScript", "TypeScript", "Node.js", "React", "Python", "SQL", "Git"];
   }
+  // Handle skills stored as comma-separated string (from user_profile.json)
+  if (typeof userSkills === "string") userSkills = userSkills.split(",").map(s => s.trim()).filter(Boolean);
+  if (typeof jobSkills === "string") jobSkills = jobSkills.split(",").map(s => s.trim()).filter(Boolean);
 
   const normalizedUser = userSkills.map(s => String(s).toLowerCase().trim());
   const normalizedJob = jobSkills.map(s => String(s).toLowerCase().trim());
@@ -116,13 +119,16 @@ export function calculateCompetitionScore(applyType = "", openPositions = 2) {
  * @returns {Object} Evaluated job with match_score, match_breakdown, why_suitable, cover_letter_draft
  */
 export function scoreJob(job = {}, profile = {}) {
-  const userSkills = profile.skills || profile.skills_array || [
+  let userSkills = profile.skills || profile.skills_array || [
     "JavaScript", "TypeScript", "Node.js", "React", "Python", "SQL", "Git", "Playwright"
   ];
+  // Handle skills stored as comma-separated string (from user_profile.json)
+  if (typeof userSkills === "string") userSkills = userSkills.split(",").map(s => s.trim()).filter(Boolean);
   const targetRole = profile.desired_role || profile.role || "Software Engineer";
   const userName = profile.name || profile.full_name || "Candidate";
 
-  const jobSkills = job.required_skills || job.requirements || [];
+  let jobSkills = job.required_skills || job.requirements || [];
+  if (typeof jobSkills === "string") jobSkills = jobSkills.split(",").map(s => s.trim()).filter(Boolean);
 
   const skills_30 = calculateSkillsScore(userSkills, jobSkills);
   const title_20 = calculateTitleScore(targetRole, job.title || "");
