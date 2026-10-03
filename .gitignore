@@ -6,3 +6,6 @@ user_profile.json
 .ana_temp/
 .kairo_temp/
 omniroute_data/
+job_history.json
+run_trace.json
+
