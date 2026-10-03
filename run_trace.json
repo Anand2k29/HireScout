@@ -50,5 +50,35 @@
         "safe_to_send": false
       }
     }
+  },
+  {
+    "timestamp": "2026-10-03T08:44:30.306Z",
+    "job": "Senior Fullstack Engineer",
+    "company": "Stripe",
+    "status": "unit_test_trace"
+  },
+  {
+    "timestamp": "2026-10-03T08:45:51.044Z",
+    "job": "Senior Fullstack Engineer",
+    "company": "Stripe",
+    "status": "unit_test_trace"
+  },
+  {
+    "timestamp": "2026-10-03T08:48:37.098Z",
+    "job": "Senior Fullstack Engineer",
+    "company": "Stripe",
+    "status": "unit_test_trace"
+  },
+  {
+    "timestamp": "2026-10-03T09:10:45.771Z",
+    "job": "Senior Fullstack Engineer",
+    "company": "Stripe",
+    "status": "unit_test_trace"
+  },
+  {
+    "timestamp": "2026-10-03T09:16:46.287Z",
+    "job": "Senior Fullstack Engineer",
+    "company": "Stripe",
+    "status": "unit_test_trace"
   }
 ]

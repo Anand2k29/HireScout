@@ -1,11 +1,15 @@
 {
-  "name": "kairo-apply",
-  "version": "1.0.0",
-  "description": "KAIRO (kairo-apply) – Kairos opportune timing browser agent with JARVIS voice persona, dual-model LLM routing and workflow memory cache",
+  "name": "hirescout",
+  "version": "2.0.0",
+  "description": "HireScout — SerpApi-powered AI job discovery, 7-signal matching, and Playwright visual auto-apply agent",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
+    "demo": "node index.js",
+    "demo:live": "APPLY_TARGET=demo node index.js",
+    "test": "node --test test/omniroute.test.js test/serpapi.test.js test/scorer.test.js test/apply.test.js test/real_apply.test.js",
+    "voice:test": "node -e \"import('./voice.js').then(m => m.speak('HireScout voice layer active'))\"",
     "install-browsers": "npx playwright install chromium"
   },
   "dependencies": {

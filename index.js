@@ -61,6 +61,16 @@ async function ask(question, voiceDuration = 5) {
   });
 }
 
+async function askTypedOnly(question) {
+  return new Promise((resolve) => {
+    if (process.stdin.isTTY && process.stdin.setRawMode) {
+      try { process.stdin.setRawMode(false); } catch {}
+    }
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    rl.question(question, (answer) => { rl.close(); resolve(answer.trim()); });
+  });
+}
+
 function waitForEnter(prompt) {
   return new Promise((resolve) => {
     if (process.stdin.isTTY && process.stdin.setRawMode) {
@@ -885,7 +895,7 @@ async function executeStepSmart(context, pageInput, stepDescription, recordedAct
         log("⚠️", `  Action: "${stepDescription}"`, "yellow");
         log("⚠️", "════════════════════════════════════════════════════════════", "yellow");
         narrate("Human confirmation required before submitting.");
-        const userApproval = await ask(`  Submit this application now? (Y/N): `);
+        const userApproval = await askTypedOnly(`  Submit this application now? (Typed input required: Y/N): `);
         if (!userApproval || !["y", "yes"].includes(userApproval.toLowerCase().trim())) {
           log("🛑", "Application submission canceled by user. Form staged in browser.", "yellow");
           await updateOverlayStatus(page, "🛑 Submission Canceled — Form Staged in Browser", detailHTML);

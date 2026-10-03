@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────────────────────────────
-# listen_space_global.ps1 — Continuous Asynchronous Background Listener for KAIRO
+# listen_space_global.ps1 — Continuous Asynchronous Background Listener for HireScout
 # Dual-Engine:
 #   1. Continuous Asynchronous Voice Engine (System.Speech RecognizeAsync)
 #   2. High-Frequency Low-Latency Keyboard Hook (GetAsyncKeyState @ 15ms)
@@ -13,13 +13,13 @@ if (-not ([System.Management.Automation.PSTypeName]'WinHook').Type) {
 Add-Type -AssemblyName System.Speech
 
 Write-Host "======================================================"
-Write-Host "  [KAIRO] K.A.I.R.O Global Voice & 3x Spacebar Listener Active"
+Write-Host "  [HireScout] Global Voice & 3x Spacebar Listener Active"
 Write-Host "======================================================"
-Write-Host "Listening for 'Hello KAIRO' or 3x Rapid Spacebar taps..."
+Write-Host "Listening for 'Hey Scout' or 3x Rapid Spacebar taps..."
 Write-Host ""
 
 $script:scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$script:batPath = Join-Path $script:scriptDir "Start_KAIRO.bat"
+$script:batPath = Join-Path $script:scriptDir "Start_HireScout.bat"
 
 # ── Single Instance Guard: Terminate duplicate background listener processes ──
 try {
@@ -35,7 +35,7 @@ try {
 
 $script:lastTriggerTime = [DateTime]::Now.AddSeconds(-15)
 
-function TriggerKAIRO($source) {
+function TriggerHireScout($source) {
     $now = [DateTime]::Now
     if (($now - $script:lastTriggerTime).TotalSeconds -lt 8) {
         return # Debounce multiple triggers within 8s
@@ -46,7 +46,7 @@ function TriggerKAIRO($source) {
         $allProcs = Get-CimInstance Win32_Process -ErrorAction SilentlyContinue
         foreach ($p in $allProcs) {
             $cmd = $p.CommandLine
-            if ($cmd -and ($cmd.Contains("index.js") -or $cmd.Contains("Start_KAIRO.bat"))) {
+            if ($cmd -and ($cmd.Contains("index.js") -or $cmd.Contains("Start_HireScout.bat") -or $cmd.Contains("Start_KAIRO.bat"))) {
                 $alreadyRunning = $true
                 break
             }
@@ -54,13 +54,13 @@ function TriggerKAIRO($source) {
     } catch {}
 
     if ($alreadyRunning) {
-        Write-Host "[INFO] KAIRO process is already active. Skipping launch."
+        Write-Host "[INFO] HireScout process is already active. Skipping launch."
         $script:lastTriggerTime = $now
         return
     }
 
     $script:lastTriggerTime = $now
-    Write-Host "[WAKE] Wake signal detected via $source! Launching KAIRO..."
+    Write-Host "[WAKE] Wake signal detected via $source! Launching HireScout..."
     try {
         Start-Process -FilePath "cmd.exe" -ArgumentList "/c", $script:batPath -WindowStyle Normal
     } catch {
@@ -77,8 +77,8 @@ try {
     # Strict Grammar choices for wake words (prevents background noise false triggers)
     $choices = New-Object System.Speech.Recognition.Choices
     $choices.Add([string[]]@(
-        "hello kairo", "hey kairo", "hi kairo", "ok kairo", "kairo",
-        "hello kairos", "hey kairos", "wake up kairo", "wake up kairos"
+        "hello scout", "hey scout", "hi scout", "ok scout", "scout",
+        "wake up scout", "hirescout", "hey hirescout"
     ))
     $gb = New-Object System.Speech.Recognition.GrammarBuilder($choices)
     $g = New-Object System.Speech.Recognition.Grammar($gb)
@@ -90,14 +90,14 @@ try {
         $conf = $Event.SourceEventArgs.Result.Confidence
         if ($text -and $conf -ge 0.60) {
             Write-Host "[MIC] Voice Heard: '$text' (Confidence: $conf)"
-            TriggerKAIRO "Voice ('$text')"
+            TriggerHireScout "Voice ('$text')"
         }
     }
     Register-ObjectEvent -InputObject $sapi -EventName "SpeechRecognized" -Action $action | Out-Null
 
     # Start continuous non-blocking async listening
     $sapi.RecognizeAsync([System.Speech.Recognition.RecognizeMode]::Multiple)
-    Write-Host "[OK] Continuous Voice Engine active ('Hello KAIRO')."
+    Write-Host "[OK] Continuous Voice Engine active ('Hey Scout')."
 } catch {
     Write-Host "[WARN] Voice Engine fallback mode. Keyboard hook active."
 }
@@ -110,7 +110,7 @@ $lastTapTime = [DateTime]::Now
 $wasPressed = $false
 
 Write-Host "[OK] 3x Rapid Spacebar Keyboard Hook active."
-Write-Host "Ready! Say 'Hello KAIRO' or tap Spacebar 3 times rapidly to wake KAIRO."
+Write-Host "Ready! Say 'Hey Scout' or tap Spacebar 3 times rapidly to wake HireScout."
 Write-Host ""
 
 while ($true) {
@@ -121,7 +121,6 @@ while ($true) {
         $now = [DateTime]::Now
         $msSinceLastTap = ($now - $lastTapTime).TotalMilliseconds
 
-        # A valid tap in a rapid sequence must occur within 450ms of the previous tap
         if ($msSinceLastTap -lt 450) {
             $spaceCount++
         } else {
@@ -130,12 +129,11 @@ while ($true) {
         }
         $lastTapTime = $now
 
-        # Require 3 taps within 900ms total duration
         if ($spaceCount -ge 3) {
             $totalMs = ($now - $firstTapTime).TotalMilliseconds
             if ($totalMs -le 900) {
                 $spaceCount = 0
-                TriggerKAIRO "3x Rapid Spacebar ($([Math]::Round($totalMs))ms)"
+                TriggerHireScout "3x Rapid Spacebar ($([Math]::Round($totalMs))ms)"
             } else {
                 $spaceCount = 1
                 $firstTapTime = $now

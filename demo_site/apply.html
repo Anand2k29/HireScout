@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HireScout Live Demo — Job Application Form</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.85);
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.1);
+      --success: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .header h1 {
+      font-size: 1.75rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.875rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .success-banner {
+      display: none;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid var(--success);
+      color: var(--success);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Job Application Portal <span class="badge" style="background:#ef4444; color:#fff;">DEMO FORM</span></h1>
+      <p id="job-title-display">Position: Senior Full-Stack Engineer @ Stripe</p>
+      <div style="margin-top:0.75rem; padding:0.5rem 0.75rem; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:6px; color:#fca5a5; font-size:0.82rem;">
+        ⚠️ <strong>Fallback Demonstration Page:</strong> All top 10 real job links required logins or verifications. This local demo form lets you safely test the full Playwright auto-fill flow and Section 9 human confirmation gate.
+      </div>
+    </div>
+
+    <form id="application-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="applicant-name">Full Name *</label>
+        <input type="text" id="applicant-name" name="applicant-name" placeholder="e.g. Alex Mercer" required />
+      </div>
+
+      <div class="form-group">
+        <label for="applicant-email">Email Address *</label>
+        <input type="email" id="applicant-email" name="applicant-email" placeholder="e.g. alex.mercer@example.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="applicant-phone">Phone Number *</label>
+        <input type="tel" id="applicant-phone" name="applicant-phone" placeholder="e.g. +1 555-019-2831" required />
+      </div>
+
+      <div class="form-group">
+        <label for="applicant-skills">Key Skills & Technical Background</label>
+        <textarea id="applicant-skills" name="applicant-skills" placeholder="List core technologies and experience..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="cover-letter">Tailored Cover Letter</label>
+        <textarea id="cover-letter" name="cover-letter" placeholder="Paste tailored cover letter here..."></textarea>
+      </div>
+
+      <button type="submit" id="submit-application-btn" class="btn-submit">
+        Submit Application (Requires Section 9 Human Confirmation)
+      </button>
+    </form>
+
+    <div id="success-banner" class="success-banner">
+      🎉 Application Successfully Submitted! <br>
+      <span style="font-size:0.9rem; font-weight:normal; color:#e2e8f0;">Confirmation receipt logged to HireScout audit trail.</span>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('application-form').style.display = 'none';
+      document.getElementById('success-banner').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

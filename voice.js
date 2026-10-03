@@ -9,11 +9,14 @@ import fs from "fs";
 import path from "path";
 import readline from "readline";
 import axios from "axios";
+import { BRANDING } from "./branding.js";
+import { speakQueued, stopTts } from "./tts.js";
+import { parseTranscript } from "./grammar.js";
 
 // ─── Config ──────────────────────────────────────────────────────────
-const SPEECH_RATE = 0;            // 0 = calm, suave, articulate JARVIS pace
+const SPEECH_RATE = 0;            // 0 = calm, articulate pace
 const DEFAULT_LISTEN_SEC = 8;     // Extended STT duration for relaxed speaking
-const TEMP_DIR = path.resolve("./.kairo_temp");
+const TEMP_DIR = path.resolve(`./${BRANDING.tempDir}`);
 
 let _voiceAvailable = null;
 let _voiceMode = false;
@@ -41,7 +44,8 @@ function cleanForSpeech(text) {
     .replace(/[═╔╗╚╝║─┐┌└┘│▓░▒█]/g, " ")     // Box chars
     .replace(/[\[\]\(\)\{\}\*\#\_\~]/g, " ") // Markdown special chars -> space
     .replace(/[^\x20-\x7E\s]/g, " ")          // Non-ASCII → space
-    .replace(/\bKAIRO\b/g, "Kai-ro")          // Phonetic clarity
+    .replace(/\bHireScout\b/gi, "Hire Scout") // Phonetic clarity
+    .replace(/\bKAIRO\b/gi, "Hire Scout")
     .replace(/([a-z0-9])([A-Z])/g, "$1, $2")  // Pause on camelCase boundary
     .replace(/\s*•\s*/g, ". ")               // Bullet points -> natural pause
     .replace(/\s*↳\s*/g, ", ")               // Sub-points -> comma pause
@@ -166,6 +170,7 @@ try {
 // ─── STT: User Speaks (blocking — waits for speech) ──────────────────
 export function listen(durationSec = DEFAULT_LISTEN_SEC) {
   if (!_voiceAvailable) return "";
+  stopTts(); // Half-duplex protection: silence speaker output before opening microphone
 
   ensureTempDir();
   const scriptPath = path.join(TEMP_DIR, "stt.ps1");

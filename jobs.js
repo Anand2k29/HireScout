@@ -12,6 +12,8 @@ import readline from "readline";
 import { callGemini, safeParseJSON, log } from "./utils.js";
 import { loadProfile, getAutoFillContext } from "./profile.js";
 import { runResumePipeline, sendApplicationEmail } from "./prompts/pipeline.js";
+import { searchSerpApiJobs } from "./serpapi.js";
+import { rankJobsDeterministically, scoreJob, compareJobs } from "./scorer.js";
 
 const JOB_HISTORY_FILE = path.resolve("./job_history.json");
 
@@ -52,127 +54,8 @@ export function saveJobHistory(data) {
 // ─── Section 4 & 5: Multi-Source Job Discovery Engine ───────────────
 // Priority sources: LinkedIn, Unstop, Naukri, Indeed, Wellfound, Company Pages
 export async function discoverRawJobs(targetRole = "Software Engineer", targetLocation = "Remote") {
-  log("🔍", `Discovering jobs across LinkedIn, Unstop, Naukri, Indeed, Wellfound for "${targetRole}"...`, "cyan");
-
-  // Candidates formatted strictly according to Section 5 17-field schema
-  const candidatePool = [
-    {
-      id: "linkedin-stripe-sr-fullstack-2026",
-      title: "Senior Full Stack Engineer (Node.js & React)",
-      company: "Stripe",
-      location: "Remote / San Francisco, CA",
-      remote_type: "remote",
-      salary_range: "$145,000 - $185,000 / year",
-      experience_required: "2-5 years",
-      requirements: ["JavaScript", "TypeScript", "Node.js", "React", "API Architecture", "Distributed Systems"],
-      responsibilities: ["Build scalable payment APIs", "Optimize frontend dashboard performance", "Design microservices"],
-      posted_or_updated_date: "2026-09-11",
-      application_deadline: "2026-10-15",
-      num_applicants: 28,
-      open_positions: 3,
-      company_rating: 4.8,
-      company_review_snippet: "Top tier engineering culture with high autonomy and modern stack.",
-      application_url: "https://stripe.com/jobs",
-      source: "LinkedIn Jobs",
-    },
-    {
-      id: "google-sw-eng-3-web-2026",
-      title: "Software Engineer III - Web Platform",
-      company: "Google",
-      location: "Bangalore, India / Remote",
-      remote_type: "hybrid",
-      salary_range: "₹28,000,000 - ₹42,000,000 / year ($120k+)",
-      experience_required: "1-4 years",
-      requirements: ["Algorithms", "Web APIs", "React", "Python", "Node.js", "Performance Tuning"],
-      responsibilities: ["Develop high-throughput web components", "Optimize rendering pipeline", "Collaborate globally"],
-      posted_or_updated_date: "2026-09-12",
-      application_deadline: "2026-10-30",
-      num_applicants: 114,
-      open_positions: 5,
-      company_rating: 4.7,
-      company_review_snippet: "Exceptional benefits, smart peers, cutting-edge AI infrastructure.",
-      application_url: "https://careers.google.com",
-      source: "Company Career Page",
-    },
-    {
-      id: "wellfound-linear-frontend-2026",
-      title: "Frontend Engineer (React / UI Performance)",
-      company: "Linear",
-      location: "Remote (Global)",
-      remote_type: "remote",
-      salary_range: "$130,000 - $160,000 / year + Equity",
-      experience_required: "2-4 years",
-      requirements: ["React", "Next.js", "TailwindCSS", "State Management", "UI Micro-animations"],
-      responsibilities: ["Craft lightning fast issue tracking UI", "Build custom WebGL components"],
-      posted_or_updated_date: "2026-09-10",
-      application_deadline: "2026-09-30",
-      num_applicants: 45,
-      open_positions: 2,
-      company_rating: 4.9,
-      company_review_snippet: "Craft-obsessed team building world class developer tools.",
-      application_url: "https://linear.app/careers",
-      source: "Wellfound / AngelList",
-    },
-    {
-      id: "unstop-openai-agent-eng-2026",
-      title: "AI Agent & Browser Automation Engineer",
-      company: "OpenAI",
-      location: "Remote / San Francisco, CA",
-      remote_type: "remote",
-      salary_range: "$180,000 - $240,000 / year",
-      experience_required: "2-5 years",
-      requirements: ["LLM Orchestration", "Playwright", "Node.js", "Python", "Reinforcement Learning"],
-      responsibilities: ["Design autonomous AI agents", "Build web browsing primitives", "Optimize benchmark scores"],
-      posted_or_updated_date: "2026-09-11",
-      application_deadline: "2026-10-20",
-      num_applicants: 62,
-      open_positions: 4,
-      company_rating: 4.9,
-      company_review_snippet: "Pioneering AGI research environment with incredible talent density.",
-      application_url: "https://openai.com/careers",
-      source: "Unstop / OpenAI Careers",
-    },
-    {
-      id: "naukri-microsoft-cloud-2026",
-      title: "Cloud & Backend Software Engineer",
-      company: "Microsoft",
-      location: "Hyderabad, India / Remote",
-      remote_type: "hybrid",
-      salary_range: "₹24,000,000 - ₹35,000,000 / year",
-      experience_required: "2-4 years",
-      requirements: ["Node.js", "C# / .NET", "Azure", "Distributed Databases", "Microservices"],
-      responsibilities: ["Scale cloud services", "Improve backend reliability", "Write resilient async code"],
-      posted_or_updated_date: "2026-09-09",
-      application_deadline: "2026-10-10",
-      num_applicants: 89,
-      open_positions: 6,
-      company_rating: 4.6,
-      company_review_snippet: "Great work-life balance and strong career growth support.",
-      application_url: "https://careers.microsoft.com",
-      source: "Naukri",
-    },
-    {
-      id: "indeed-vercel-nextjs-2026",
-      title: "Core Web Developer - DX Team",
-      company: "Vercel",
-      location: "Remote (Worldwide)",
-      remote_type: "remote",
-      salary_range: "$120,000 - $150,000 / year",
-      experience_required: "1-3 years",
-      requirements: ["Next.js", "Node.js", "TypeScript", "Serverless", "Edge Functions"],
-      responsibilities: ["Improve Next.js developer experience", "Maintain core framework open source"],
-      posted_or_updated_date: "2026-09-12",
-      application_deadline: "2026-10-05",
-      num_applicants: 34,
-      open_positions: 2,
-      company_rating: 4.8,
-      company_review_snippet: "Ship features to millions of developers every single day.",
-      application_url: "https://vercel.com/careers",
-      source: "Indeed",
-    },
-  ];
-
-  return candidatePool;
+  log("🔍", `Discovering jobs across LinkedIn, Unstop, Naukri, Indeed, Wellfound for "${targetRole}" via SerpApi...`, "cyan");
+  return await searchSerpApiJobs(targetRole, targetLocation);
 }
 
 // ─── Section 6: Hard Filters & 7-Signal Weighted Ranking Matrix ──────
@@ -190,21 +73,12 @@ export async function rankAndFilterJobs(rawJobs, profile) {
   const history = loadJobHistory();
   const seenIds = new Set(history.seenJobIds || []);
 
-  const profileContext = getAutoFillContext(profile) || `
-Name: Candidate
-Target Role: Software Engineer / Web Developer
-Experience: 2-4 years
-Key Skills: JavaScript, TypeScript, Node.js, React, Python, Automation
-Target Salary: $120,000 - $160,000 / year
-  `;
-
   // 1. Dedup check (drop jobs whose ID or URL is already seen)
   const undedupedJobs = rawJobs.filter(j => !seenIds.has(j.id) && !seenIds.has(j.application_url));
 
   // 2. Hard filters check
   const now = new Date();
   const validJobs = undedupedJobs.filter((job) => {
-    // Deadline check
     if (job.application_deadline) {
       const d = new Date(job.application_deadline);
       if (d < now) return false; // Deadline passed
@@ -214,90 +88,15 @@ Target Salary: $120,000 - $160,000 / year
 
   const targetPool = validJobs.length > 0 ? validJobs : rawJobs;
 
-  const prompt = `You are an expert AI Career Matcher & Executive Recruiter.
-
-Given candidate jobs and user profile, evaluate each job using the 7-Signal Weighted Ranking Matrix:
-- Requirements match (skills overlap with profile): 30%
-- Title / Relevance match: 20%
-- Salary vs target band: 15%
-- Application deadline urgency (soon-but-valid ranks higher): 10%
-- Company rating & reviews: 10%
-- Posting freshness: 10%
-- Competition level (num_applicants vs open_positions): 5%
-
-Candidate Profile:
-${profileContext}
-
-Candidate Jobs JSON:
-${JSON.stringify(targetPool, null, 2)}
-
-Return ONLY a raw JSON array of evaluated objects. For each job include ALL original fields plus:
-"match_score": integer 0 to 100
-"match_breakdown": { "skills_30": int, "title_20": int, "salary_15": int, "deadline_10": int, "rating_10": int, "freshness_10": int, "competition_5": int }
-"why_suitable": "2-3 sentence plain language explanation of why this fits, referencing specific skill overlaps and experience"
-"cover_letter_draft": "150-200 word tailored cover letter opening paragraph for this application"
-"resume_bullet_rewrites": ["3-5 foregrounded bullet point rewrites tailored to this job"]`;
-
-  try {
-    const rawRes = await callGemini(prompt, "Output strictly a JSON array of evaluated jobs.", { timeout: 35000 });
-    const parsed = safeParseJSON(rawRes);
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed.sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
-    }
-  } catch (err) {
-    log("⚡", `LLM notice (${err.message.slice(0, 60)}...). Using local 7-signal weighting matrix...`, "yellow");
-  }
-
-  // Local fallback 7-signal weighted matrix calculator
-  return targetPool.map((j) => {
-    const skillsScore = 26 + Math.floor(Math.random() * 4); // max 30
-    const titleScore = 18 + Math.floor(Math.random() * 2);  // max 20
-    const salaryScore = 13 + Math.floor(Math.random() * 2); // max 15
-    const deadlineScore = 8 + Math.floor(Math.random() * 2); // max 10
-    const ratingScore = Math.min(10, Math.round((j.company_rating || 4.5) * 2)); // max 10
-    const freshnessScore = 8 + Math.floor(Math.random() * 2); // max 10
-    const compScore = 4; // max 5
-
-    const totalScore = skillsScore + titleScore + salaryScore + deadlineScore + ratingScore + freshnessScore + compScore;
-
-    return {
-      ...j,
-      match_score: totalScore,
-      match_breakdown: {
-        skills_30: skillsScore,
-        title_20: titleScore,
-        salary_15: salaryScore,
-        deadline_10: deadlineScore,
-        rating_10: ratingScore,
-        freshness_10: freshnessScore,
-        competition_5: compScore,
-      },
-      why_suitable: `Strong match (${totalScore}%) for your background in ${(j.requirements || []).slice(0, 3).join(", ")}. Matches your ${j.experience_required} experience target with excellent salary (${j.salary_range}) and rating (${j.company_rating} ★).`,
-      cover_letter_draft: `Dear Hiring Manager at ${j.company},\n\nI am writing to express my strong interest in the ${j.title} position. With my background in ${(j.requirements || []).slice(0, 3).join(", ")}, I have built scalable web applications and resilient automated pipelines. I admire ${j.company}'s work and look forward to bringing my expertise to your team.`,
-      resume_bullet_rewrites: [
-        `Architected scalable Node.js & React services mirroring ${j.company}'s tech stack`,
-        `Engineered high-performance web components reducing page latency by 35%`,
-        `Designed resilient API integrations handling high-concurrency workloads`,
-      ],
-    };
-  }).sort((a, b) => b.match_score - a.match_score);
+  // 3. Deterministic 7-Signal Ranking
+  const ranked = rankJobsDeterministically(targetPool, profile);
+  log("✅", `Ranked ${ranked.length} job candidates deterministically in <5ms.`, "green");
+  return ranked;
 }
 
 function ensureJobFields(j) {
-  const reqs = (j.requirements || []).slice(0, 3).join(", ") || "Software Engineering";
-  const defaultScore = 88 + (Math.abs((j.title || "").length + (j.company || "").length) % 9);
-  const score = j.match_score || defaultScore;
-  return {
-    ...j,
-    match_score: score,
-    why_suitable: j.why_suitable || `Strong match (${score}%) for your background in ${reqs}. Fits your target experience level with competitive salary (${j.salary_range || 'Market Rate'}) and rating (${j.company_rating || 4.8} ★).`,
-    cover_letter_draft: j.cover_letter_draft || `Dear Hiring Manager at ${j.company},\n\nI am writing to express my strong interest in the ${j.title} position. With my background in ${reqs}, I admire ${j.company}'s engineering standards and look forward to bringing my skills to your team.`,
-    resume_bullet_rewrites: j.resume_bullet_rewrites || [
-      `Architected high-performance web components matching ${j.company}'s tech stack`,
-      `Optimized scalable API workflows reducing end-to-end task execution latency`,
-      `Engineered resilient software services handling high-concurrency workloads`,
-    ],
-  };
+  const profile = loadProfile() || {};
+  return scoreJob(j, profile);
 }
 
 // ─── Section 8: Select Top 5 Jobs Daily ──────────────────────────────
@@ -334,7 +133,7 @@ export async function renderJobDashboard() {
 
   console.log(`
 ${J.cyan}╭──────────────────────────────────────────────────────────────────────────╮${J.reset}
-${J.cyan}│${J.reset}  ${J.bright}${J.cyan}💼  K A I R O  —  AI Job Discovery & Application Agent Dashboard${J.reset}     ${J.cyan}│${J.reset}
+${J.cyan}│${J.reset}  ${J.bright}${J.cyan}💼  H I R E S C O U T  —  AI Job Discovery & Application Dashboard${J.reset}   ${J.cyan}│${J.reset}
 ${J.cyan}│${J.reset}  ${J.dim}17-Field Schema • 7-Signal Match Scoring • Live Playwright Visual Apply${J.reset}  ${J.cyan}│${J.reset}
 ${J.cyan}╰──────────────────────────────────────────────────────────────────────────╯${J.reset}
 `);
@@ -365,12 +164,13 @@ ${J.cyan}╰──────────────────────�
   console.log(`  ${J.bright}Dashboard Actions:${J.reset}`);
   console.log(`   ${J.green}${J.bright}[1-5]${J.reset} : ${J.bright}🚀 Open Live Chromium Browser → Navigate to Career Page & Auto-Apply${J.reset}`);
   console.log(`   ${J.green}${J.bright}[ V ]${J.reset} : ${J.bright}🌐 Visual Apply ALL Top 5 → Open Browser for All Career Pages${J.reset}`);
+  console.log(`   ${J.cyan}[ C ]${J.reset} : ${J.bright}📊 Compare 2 Jobs Side-by-Side (7-Signal Breakdown)${J.reset}`);
   console.log(`   ${J.cyan}[ D ]${J.reset} : View detailed AI Cover Letter & Resume Bullets for a job`);
   console.log(`   ${J.cyan}[ S ]${J.reset} : Save selected job match to saved list`);
   console.log(`   ${J.cyan}[ R ]${J.reset} : Refresh search target title & location`);
   console.log(`   ${J.cyan}[ M ]${J.reset} : Return to Main Menu\n`);
 
-  const choice = await askInput(`  ${J.bright}Enter choice (1-5, V, D, S, R, M):${J.reset} `);
+  const choice = await askInput(`  ${J.bright}Enter choice (1-5, V, C, D, S, R, M):${J.reset} `);
   const choiceUpper = choice.toUpperCase();
 
   // Helper: build a browser goal for selected jobs
@@ -388,6 +188,19 @@ ${J.cyan}╰──────────────────────�
   if (choiceUpper === "V") {
     console.log(`\n  ${J.green}${J.bright}🚀 Opening Live Chromium Browser for ALL Top 5 career pages...${J.reset}\n`);
     return buildBrowserGoal(top5);
+  }
+
+  // [C] Compare 2 jobs side-by-side
+  if (choiceUpper === "C") {
+    const numA = await askInput(`  ${J.yellow}Select first job number to compare (1-5):${J.reset} `);
+    const numB = await askInput(`  ${J.yellow}Select second job number to compare (1-5):${J.reset} `);
+    const jobA = top5[parseInt(numA) - 1];
+    const jobB = top5[parseInt(numB) - 1];
+    if (jobA && jobB) {
+      return await renderJobComparisonUI(jobA, jobB, profile);
+    }
+    console.log(`  ${J.red}Invalid job selection for comparison.${J.reset}`);
+    return await renderJobDashboard();
   }
 
   // Support single digit (1-5), ranges like 1-4, or comma lists like 1,3,5
@@ -446,6 +259,64 @@ ${J.cyan}╰──────────────────────�
   }
 
   return null;
+}
+
+/**
+ * Render Interactive Side-by-Side Job Comparison UI
+ */
+export async function renderJobComparisonUI(jobA, jobB, profile = {}) {
+  const comp = compareJobs(jobA, jobB, profile);
+  const bdA = comp.jobA.match_breakdown || {};
+  const bdB = comp.jobB.match_breakdown || {};
+
+  console.log(`
+${J.cyan}╭──────────────────────────────────────────────────────────────────────────╮${J.reset}
+${J.cyan}│${J.reset}  ${J.bright}${J.cyan}📊  HireScout Job Comparison Matrix — 7 Signal Analysis${J.reset}             ${J.cyan}│${J.reset}
+${J.cyan}╰──────────────────────────────────────────────────────────────────────────╯${J.reset}
+
+  ${J.bright}Job #1:${J.reset} ${J.green}${comp.jobA.title}${J.reset} @ ${J.yellow}${comp.jobA.company}${J.reset} (${comp.jobA.match_score}%)
+  ${J.bright}Job #2:${J.reset} ${J.green}${comp.jobB.title}${J.reset} @ ${J.yellow}${comp.jobB.company}${J.reset} (${comp.jobB.match_score}%)
+
+  ${J.cyan}Signal Breakdown (Max Pts)         #1 ${(comp.jobA.company || "Company A").slice(0, 12).padEnd(12)}        #2 ${(comp.jobB.company || "Company B").slice(0, 12).padEnd(12)}${J.reset}
+  ──────────────────────────────────────────────────────────────────────────
+  1. Skills Overlap (30 pts)         ${String(bdA.skills_30 || 20).padStart(2)} pts                      ${String(bdB.skills_30 || 20).padStart(2)} pts
+  2. Title Relevance (20 pts)        ${String(bdA.title_20 || 15).padStart(2)} pts                      ${String(bdB.title_20 || 15).padStart(2)} pts
+  3. Salary Alignment (15 pts)       ${String(bdA.salary_15 || 12).padStart(2)} pts                      ${String(bdB.salary_15 || 12).padStart(2)} pts
+  4. Deadline Urgency (10 pts)       ${String(bdA.deadline_10 || 8).padStart(2)} pts                      ${String(bdB.deadline_10 || 8).padStart(2)} pts
+  5. Company Rating (10 pts)         ${String(bdA.rating_10 || 9).padStart(2)} pts                      ${String(bdB.rating_10 || 9).padStart(2)} pts
+  6. Posting Freshness (10 pts)      ${String(bdA.freshness_10 || 8).padStart(2)} pts                      ${String(bdB.freshness_10 || 8).padStart(2)} pts
+  7. Apply Competition (5 pts)       ${String(bdA.competition_5 || 4).padStart(2)} pts                      ${String(bdB.competition_5 || 4).padStart(2)} pts
+  ──────────────────────────────────────────────────────────────────────────
+  ${J.bright}TOTAL MATCH SCORE (100 pts)        ${J.green}${comp.jobA.match_score}%${J.reset}                         ${J.green}${comp.jobB.match_score}%${J.reset}
+
+  ${J.yellow}💡 AI Comparative Recommendation:${J.reset}
+  ${J.dim}${comp.recommendation}${J.reset}
+
+  ${J.bright}Action Choices:${J.reset}
+   ${J.green}[1]${J.reset} 🚀 Visual Apply to Job #1 (${comp.jobA.company})
+   ${J.green}[2]${J.reset} 🚀 Visual Apply to Job #2 (${comp.jobB.company})
+   ${J.green}[3]${J.reset} 🌐 Batch Apply to BOTH Jobs (#1 and #2)
+   ${J.cyan}[B]${J.reset} 🔙 Back to Job Dashboard
+`);
+
+  const choice = (await askInput(`  ${J.bright}Select action (1, 2, 3, B):${J.reset} `)).toUpperCase();
+  if (choice === "1") {
+    return await handleJobSelection(comp.jobA);
+  }
+  if (choice === "2") {
+    return await handleJobSelection(comp.jobB);
+  }
+  if (choice === "3") {
+    const profStr = `${profile.name || "Candidate"}, ${profile.email || "email@example.com"}`;
+    const selectedJobs = [comp.jobA, comp.jobB];
+    const jobDescriptions = selectedJobs.map(j => `"${j.title}" at ${j.company} (${j.application_url})`).join(", ");
+    return {
+      action: "AUTO_APPLY_JOB_BATCH",
+      job: selectedJobs[0],
+      goal: `Navigate to ${selectedJobs[0].application_url}. Open job application pages for ${jobDescriptions}, fill contact information using candidate profile (${profStr}), paste tailored cover letters, and PAUSE BEFORE SUBMITTING to ask user for explicit confirmation.`,
+    };
+  }
+  return await renderJobDashboard();
 }
 
 // ─── Section 7 & 9: Individual Job Selection & Human-Gated Flow ──────

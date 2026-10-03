@@ -2,12 +2,17 @@ import "dotenv/config";
 import fs from "fs";
 import path from "path";
 import axios from "axios";
+import { callOmniRoute } from "./llm_omniroute.js";
+import { calculateBackoffJitter } from "./llm_helper.js";
 
 // ─── LLM Waterfall Engine ────────────────────────────────────────────
 // Cascade order:
-//   1. Local Claude proxy (if configured)
-//   2. Gemini API keys × models (round-robin, with per-key cooldowns)
-//   3. OpenRouter models (last-resort fallback)
+//   Tier 0: OmniRoute gateway (OPTIONAL — off by default, OMNIROUTE_ENABLED=true to enable)
+//   Tier 1: Groq Ultra-Fast
+//   Tier 2: Gemini API keys × models (round-robin, with per-key cooldowns)
+//   Tier 3: OpenRouter models (fallback)
+//   Tier 4: Local Claude proxy (if configured)
+//   Tier 5: Local Ollama (if configured)
 // ─────────────────────────────────────────────────────────────────────
 
 const GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
@@ -234,8 +239,8 @@ async function tryGemini(prompt, systemPrompt, options) {
             lastError.includes("TOO_MANY_REQUESTS")
           ))) {
             if (attempts < maxAttempts) {
-              const backoff = attempts * 1000;
-              if (process.env.DEBUG_LOGS) console.log(`  ⏳ 429 Rate Limit on Gemini ${model} → auto-backoff ${backoff}ms...`);
+              const backoff = calculateBackoffJitter(attempts, 1000);
+              if (process.env.DEBUG_LOGS) console.log(`  ⏳ 429 Rate Limit on Gemini ${model} → auto-backoff with jitter ${backoff}ms...`);
               await sleep(backoff);
               continue;
             } else {
@@ -297,8 +302,8 @@ async function tryOpenRouter(prompt, systemPrompt, options) {
           headers: {
             "Authorization": `Bearer ${apiKey}`,
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://kairo-apply.app",
-            "X-Title": "KAIRO Resume & Application Agent",
+            "HTTP-Referer": "https://hirescout.app",
+            "X-Title": "HireScout AI Agent",
           },
           timeout: options.timeout || 45000,
         });
@@ -384,7 +389,15 @@ async function tryGroq(prompt, systemPrompt, options) {
 
 // ─── Main LLM Entry Point (Waterfall) ────────────────────────────────
 export async function callGemini(prompt, systemPrompt = "", options = {}) {
-  // Tier 0: Groq Ultra-Fast API (Primary high-speed tier if GROQ_API_KEY is configured)
+  // Tier 0: OmniRoute Gateway (optional — off by default)
+  // When OMNIROUTE_ENABLED=true and the gateway is healthy, this is tried first.
+  // On any failure the circuit breaker opens and we fall through to the existing tiers.
+  // OmniRoute is ONLY used for text generation (/v1/chat/completions).
+  // All web/job/news search MUST go through SerpApi — never OmniRoute /v1/search.
+  const omniResult = await callOmniRoute(prompt, systemPrompt, options);
+  if (omniResult) return omniResult;
+
+  // Tier 1: Groq Ultra-Fast API (Primary high-speed tier if GROQ_API_KEY is configured)
   const groqResult = await tryGroq(prompt, systemPrompt, options);
   if (groqResult) return groqResult;
 
@@ -724,7 +737,7 @@ export async function askVision(screenshotBase64, prompt) {
 export async function injectOverlay(page) {
   try {
     await page.evaluate(() => {
-      if (document.getElementById('kairo-overlay')) return;
+      if (document.getElementById('hirescout-overlay')) return;
 
       function safeSetHTML(container, htmlString) {
         try {
@@ -739,7 +752,7 @@ export async function injectOverlay(page) {
           try {
             if (window.trustedTypes && window.trustedTypes.createPolicy) {
               let p;
-              try { p = window.trustedTypes.createPolicy('kairo', { createHTML: s => s }); }
+              try { p = window.trustedTypes.createPolicy('hirescout', { createHTML: s => s }); }
               catch { p = window.trustedTypes.defaultPolicy || { createHTML: s => s }; }
               container.innerHTML = p.createHTML ? p.createHTML(htmlString) : htmlString;
             } else {
@@ -752,7 +765,7 @@ export async function injectOverlay(page) {
       }
 
       const overlay = document.createElement('div');
-      overlay.id = 'kairo-overlay';
+      overlay.id = 'hirescout-overlay';
       safeSetHTML(overlay, `
         <div id="sr-status" style="
           position: fixed; top: 0; left: 0; right: 0; z-index: 2147483647;
@@ -760,11 +773,12 @@ export async function injectOverlay(page) {
           color: #fff; padding: 10px 20px; font-family: 'Segoe UI', system-ui, sans-serif;
           font-size: 14px; display: flex; align-items: center; justify-content: space-between;
           box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-bottom: 3px solid #7c3aed;
+          pointer-events: none;
         ">
           <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 20px;">🤖</span>
-            <span style="font-weight: 700; color: #a78bfa; letter-spacing: 0.5px;">KAIRO Autonomous Agent</span>
-            <span id="sr-step-badge" style="background: rgba(124, 58, 237, 0.3); border: 1px solid #7c3aed; padding: 2px 10px; border-radius: 12px; font-size: 12px; color: #c4b5fd; font-weight: 600;">ACTIVE PLAYBACK</span>
+            <span style="font-size: 20px;">🛡️</span>
+            <span style="font-weight: 700; color: #38bdf8; letter-spacing: 0.5px;">HireScout Autonomous Agent</span>
+            <span id="sr-step-badge" style="background: rgba(56, 189, 248, 0.2); border: 1px solid #38bdf8; padding: 2px 10px; border-radius: 12px; font-size: 12px; color: #38bdf8; font-weight: 600;">ACTIVE PLAYBACK</span>
           </div>
           <div id="sr-msg" style="color: #f3f4f6; font-weight: 500; font-size: 13px; max-width: 60%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Initializing...</div>
           <div style="display: flex; align-items: center; gap: 8px;">
@@ -772,25 +786,25 @@ export async function injectOverlay(page) {
             <span style="font-size: 11px; color: #9ca3af; text-transform: uppercase; font-weight: 600;">Chromium Visual Mode</span>
           </div>
         </div>
-        <div id="kairo-detail-panel" style="
+        <div id="hirescout-detail-panel" style="
           position: fixed; bottom: 20px; right: 20px; z-index: 2147483646;
           background: rgba(15, 12, 41, 0.95); backdrop-filter: blur(12px);
-          border: 1px solid rgba(124, 58, 237, 0.5); border-radius: 12px;
+          border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 12px;
           color: #e2e8f0; padding: 14px 18px; width: 360px; max-height: 280px; overflow-y: auto;
           font-family: 'Segoe UI', system-ui, sans-serif;
           box-shadow: 0 8px 32px rgba(0,0,0,0.6); display: none; transition: all 0.3s ease;
         ">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
-            <span style="font-weight: 700; font-size: 12px; color: #a78bfa; text-transform: uppercase; letter-spacing: 0.5px;">⚡ Live Action Context</span>
-            <span id="kairo-panel-tag" style="background: #7c3aed; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">CHROMIUM VISUAL</span>
+            <span style="font-weight: 700; font-size: 12px; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.5px;">⚡ Live Action Context</span>
+            <span id="hirescout-panel-tag" style="background: #0284c7; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">CHROMIUM VISUAL</span>
           </div>
-          <div id="kairo-panel-body" style="font-size: 12px; line-height: 1.5; color: #cbd5e1;"></div>
+          <div id="hirescout-panel-body" style="font-size: 12px; line-height: 1.5; color: #cbd5e1;"></div>
         </div>
         <style>
           @keyframes sr-pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
           @keyframes sr-highlight {
             0% { outline: 3px solid transparent; }
-            50% { outline: 4px solid #7c3aed; outline-offset: 3px; box-shadow: 0 0 15px rgba(124,58,237,0.6); }
+            50% { outline: 4px solid #38bdf8; outline-offset: 3px; box-shadow: 0 0 15px rgba(56,189,248,0.6); }
           }
           .sr-highlight { animation: sr-highlight 1.5s ease-in-out 3 !important; }
         </style>
@@ -806,8 +820,8 @@ export async function updateOverlayStatus(page, message, details = null) {
     await page.evaluate(({ msg, det }) => {
       const el = document.getElementById('sr-msg');
       if (el) el.textContent = msg;
-      const panel = document.getElementById('kairo-detail-panel');
-      const body = document.getElementById('kairo-panel-body');
+      const panel = document.getElementById('hirescout-detail-panel');
+      const body = document.getElementById('hirescout-panel-body');
 
       function safeSetHTML(container, htmlString) {
         try {

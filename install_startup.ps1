@@ -1,28 +1,28 @@
 # ─────────────────────────────────────────────────────────────────────
-# install_startup.ps1 — Installs KAIRO Background Listener to Windows Startup
+# install_startup.ps1 — Installs HireScout Background Listener to Windows Startup
 # ─────────────────────────────────────────────────────────────────────
 
 $WshShell = New-Object -ComObject WScript.Shell
 $StartupFolder = [System.Environment]::GetFolderPath("Startup")
-$ShortcutPath = Join-Path $StartupFolder "KAIRO Background Listener.lnk"
+$ShortcutPath = Join-Path $StartupFolder "HireScout Background Listener.lnk"
 
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$TargetVBS = Join-Path $ScriptDir "Start_KAIRO_Background_Listener_Silent.vbs"
+$TargetVBS = Join-Path $ScriptDir "Start_HireScout_Background_Listener_Silent.vbs"
 
 $Shortcut = $WshShell.CreateShortcut($ShortcutPath)
 $Shortcut.TargetPath = "wscript.exe"
 $Shortcut.Arguments = "`"$TargetVBS`""
 $Shortcut.WorkingDirectory = $ScriptDir
-$Shortcut.Description = "KAIRO Background Voice & 3x Spacebar Listener"
+$Shortcut.Description = "HireScout Background Voice & 3x Spacebar Listener"
 $Shortcut.IconLocation = "shell32.dll, 14"
 $Shortcut.Save()
 
 Write-Host "======================================================"
-Write-Host "  ✅ KAIRO Background Listener installed to Startup!"
+Write-Host "  ✅ HireScout Background Listener installed to Startup!"
 Write-Host "======================================================"
 Write-Host "Shortcut Path : $ShortcutPath"
 Write-Host "Target Script : $TargetVBS"
 Write-Host ""
-Write-Host "Whenever you turn on or open your laptop, KAIRO will automatically"
-Write-Host "listen for 'Hello KAIRO' or 3x Spacebar taps in the background!"
+Write-Host "Whenever you turn on or open your laptop, HireScout will automatically"
+Write-Host "listen for 'Hey Scout' or 3x Spacebar taps in the background!"
 Write-Host "======================================================"
