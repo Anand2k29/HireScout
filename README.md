@@ -48,12 +48,11 @@ HireScout is an autonomous AI agent built in Node.js that transforms job searchi
                                 └───────────────────────┘                   └───────────────────────┘
 ```
 
-### 1. 🌐 Live SerpApi Job Search (`serpapi.js`)
-- **Primary Engine**: Queries SerpApi's Google Jobs engine (`engine=google_jobs`) in real-time.
-- **Web Fallback**: If Google Jobs returns 0 results, automatically falls back to SerpApi web search (`site:unstop.com`, `site:naukri.com`, `site:linkedin.com/jobs`).
-- **17-Field Schema Normalization**: Normalizes raw job listings into a complete 17-field schema (`id`, `title`, `company`, `location`, `source`, `posted_date`, `application_url`, `apply_type`, `salary_range`, `job_type`, `experience_level`, `required_skills`, `role_summary`, `full_description`, `match_score`, `why_suitable`, `cover_letter_draft`).
-- **30-Minute Caching**: Caches search results locally in `.hirescout_temp/serpapi_cache.json` for 30 minutes to optimize API credit usage.
-- **Keyless Mock Mode**: Automatically falls back to a realistic mock job pool if `SERPAPI_KEY` is omitted, ensuring HireScout runs out-of-the-box.
+### 1. 🌐 SerpApi Google Jobs Core Search Engine (`serpapi.js`)
+- **Primary Core Engine**: Queries SerpApi's Google Jobs engine (`engine=google_jobs`) in real-time to fetch active job listings.
+- **Web Fallback**: If Google Jobs returns 0 results for niche keywords, automatically queries SerpApi organic web search (`site:unstop.com`, `site:naukri.com`, `site:linkedin.com/jobs`).
+- **17-Field Schema Normalization**: Normalizes raw job listings into a unified 17-field schema (`id`, `title`, `company`, `location`, `source`, `posted_date`, `application_url`, `apply_type`, `salary_range`, `job_type`, `experience_level`, `required_skills`, `role_summary`, `full_description`, `match_score`, `why_suitable`, `cover_letter_draft`).
+- **30-Minute Caching**: Caches search results locally in `.kairo_temp/serpapi_cache.json` for 30 minutes to optimize API credit usage.
 
 ### 2. 🧠 Deterministic 7-Signal Weighted Scorer (`scorer.js`)
 Evaluates candidate jobs in **<1ms** with zero network latency and 0% randomness:
@@ -93,42 +92,58 @@ Allows candidates to pick any 2 jobs from top matches and renders a side-by-side
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Quick Start & How to Run
 
 ### Prerequisites
-- Node.js 18 or higher
-- Windows 10/11 (for native voice layer & background listener)
-- Playwright Chromium browser (`npm run install-browsers`)
+- **Node.js 18+** installed
+- **Windows 10/11** (recommended for SAPI voice output and global spacebar wake listener)
+- **SerpApi API Key** (Get a free key at [serpapi.com](https://serpapi.com))
 
-### Setup Instructions
+---
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Anand2k29/HireScout.git
-   cd HireScout
-   ```
+### Step-by-Step Installation & Execution
 
-2. **Install dependencies and Chromium browser**:
-   ```bash
-   npm install
-   npm run install-browsers
-   ```
+#### 1. Clone the Repository
+```bash
+git clone https://github.com/Anand2k29/HireScout.git
+cd HireScout
+```
 
-3. **Configure Environment Variables**:
-   Copy `.env.example` to `.env`:
-   ```bash
-   copy .env.example .env
-   ```
-   Add your API keys:
-   ```env
-   SERPAPI_KEY=your_serpapi_key_here
-   GEMINI_API_KEY=your_gemini_key_here
-   ```
+#### 2. Install Dependencies & Playwright Browser
+```bash
+npm install
+npm run install-browsers
+```
 
-4. **Launch HireScout**:
-   ```bash
-   npm start
-   ```
+#### 3. Configure Environment Variables
+Copy `.env.example` to `.env`:
+```bash
+copy .env.example .env
+```
+Open `.env` and insert your **SerpApi Key**:
+```env
+# ─── Core Engine: SerpApi Live Search API Key (REQUIRED) ────────────────
+SERPAPI_KEY=your_serpapi_key_here
+```
+
+#### 4. Run HireScout
+
+##### Option A: Interactive Command Line (CLI)
+```bash
+npm start
+```
+
+##### Option B: Windows Quick Launcher
+Double-click `Start_HireScout.bat` or run:
+```cmd
+.\Start_HireScout.bat
+```
+
+##### Option C: Run Full Automated Test Suite
+```bash
+npm test
+```
+
 
 ---
 
