@@ -5,7 +5,9 @@ browser_profile/
 user_profile.json
 .ana_temp/
 .kairo_temp/
+.hirescout_temp/
 omniroute_data/
+
 job_history.json
 run_trace.json
 
