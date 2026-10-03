@@ -221,10 +221,11 @@ npm test
 
 > **SerpApi India Hackathon 2026 Submission**
 
-| Team Role | Member Name | GitHub Profile |
-| :--- | :--- | :--- |
-| ⚡ **Lead AI & Systems Engineer** | **Anand Minejes** | [@Anand2k29](https://github.com/Anand2k29) |
-| 🚀 **Core Engineer & Full-Stack Developer** | **Jyotasana** | Contributor |
+| Member Name | GitHub Profile |
+| :--- | :--- |
+| **Anand Minejes** | [@Anand2k29](https://github.com/Anand2k29) |
+| **Jyotasana** | [@Jyotasana17](https://github.com/Jyotasana17) |
+
 
 <br/>
 
