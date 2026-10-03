@@ -552,6 +552,39 @@
       "status": "Applied via Unit Test",
       "applied_at": "2026-10-03T09:16:46.215Z",
       "screenshot_evidence": "/fake/path.png"
+    },
+    {
+      "job": {
+        "id": "test-apply-job-99",
+        "title": "Test Engineer",
+        "company": "Test Corp",
+        "application_url": "http://localhost:3000/demo_site/apply.html"
+      },
+      "status": "Applied via Unit Test",
+      "applied_at": "2026-10-03T09:20:47.379Z",
+      "screenshot_evidence": "/fake/path.png"
+    },
+    {
+      "job": {
+        "id": "test-apply-job-99",
+        "title": "Test Engineer",
+        "company": "Test Corp",
+        "application_url": "http://localhost:3000/demo_site/apply.html"
+      },
+      "status": "Applied via Unit Test",
+      "applied_at": "2026-10-03T09:22:49.884Z",
+      "screenshot_evidence": "/fake/path.png"
+    },
+    {
+      "job": {
+        "id": "test-apply-job-99",
+        "title": "Test Engineer",
+        "company": "Test Corp",
+        "application_url": "http://localhost:3000/demo_site/apply.html"
+      },
+      "status": "Applied via Unit Test",
+      "applied_at": "2026-10-03T09:24:17.470Z",
+      "screenshot_evidence": "/fake/path.png"
     }
   ],
   "seenJobIds": [
