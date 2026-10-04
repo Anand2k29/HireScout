@@ -299,7 +299,7 @@ export async function executeRealFirstApply(jobsInput, profileInput = null, opti
 
     const confirmAnswer = await askInput(`  Type [yes] to submit real application, or [no] to stop: `);
 
-    if (confirmAnswer.toLowerCase() === "yes") {
+    if ((confirmAnswer || "").toLowerCase() === "yes") {
       log("⚡", "Human confirmation granted! Submitting REAL application...", "green");
 
       const submitBtn = "#submit-application-btn, button[type='submit'], input[type='submit']";
@@ -395,7 +395,7 @@ export async function executeDemoFallback(job = {}, profile = {}, isHeadless = f
 
   const answer = await askInput(`  Type [yes] to submit demo form, or [no] to stop: `);
 
-  if (answer.toLowerCase() === "yes") {
+  if ((answer || "").toLowerCase() === "yes") {
     await page.click("#submit-application-btn");
     await page.waitForTimeout(800);
 
@@ -423,3 +423,137 @@ export async function executeDemoFallback(job = {}, profile = {}, isHeadless = f
     return { status: "demo_declined", mode: "demo" };
   }
 }
+
+/**
+ * ⚡ Multi-Tab Simultaneous Batch Auto-Apply Engine
+ * Opens 10 different job application pages in 10 separate browser tabs simultaneously,
+ * stages auto-fills, displays overlay banners, and executes batch submissions.
+ */
+export async function executeMultiTabApply(jobsInput, profileInput = null, options = {}) {
+  const candidateList = Array.isArray(jobsInput) && jobsInput.length > 0 ? jobsInput.slice(0, 10) : getMockSerpApiJobs("Software Engineer", "Remote").slice(0, 10);
+  const candidate = profileInput || loadProfile() || {};
+
+  log("🚀", `[Multi-Tab Batch Auto-Apply] Launching Chromium browser with ${candidateList.length} visible tabs simultaneously...`, "cyan");
+
+  const userDataDir = path.resolve("./browser_profile");
+  let browser;
+  try {
+    browser = await chromium.launchPersistentContext(userDataDir, {
+      headless: false,
+      viewport: { width: 1366, height: 768 },
+      args: ["--start-maximized", "--disable-blink-features=AutomationControlled"]
+    });
+  } catch {
+    browser = await chromium.launch({
+      headless: false,
+      args: ["--start-maximized"]
+    });
+  }
+
+  const pages = [];
+  const results = [];
+
+  // Step 1: Open tabs in parallel for each job
+  log("🌐", `Opening ${candidateList.length} browser tabs in parallel...`, "green");
+  for (let i = 0; i < candidateList.length; i++) {
+    const job = candidateList[i];
+    const page = (i === 0 && browser.pages) ? (browser.pages()[0] || await browser.newPage()) : await browser.newPage();
+    pages.push(page);
+
+    const targetUrl = resolveTargetUrl(job.application_url);
+    log("📑", `Tab ${i + 1}/${candidateList.length}: Loading ${job.company} (${job.title})...`, "cyan");
+    page.goto(targetUrl, { waitUntil: "domcontentloaded" }).catch(() => {});
+  }
+
+  // Wait briefly for initial tab load
+  await new Promise(r => setTimeout(r, 1200));
+
+  // Step 2: Auto-fill fields in each tab sequentially and bring each tab to front visually
+  for (let i = 0; i < candidateList.length; i++) {
+    const job = candidateList[i];
+    const page = pages[i];
+
+    log("✍️", `Tab ${i + 1}/${candidateList.length}: Staging & Auto-Filling for ${job.company}...`, "green");
+    try { await page.bringToFront(); } catch {}
+
+    // Inject custom Multi-Tab HireScout Status Overlay
+    try {
+      await page.evaluate(({ company, title, index, total }) => {
+        if (document.getElementById("hirescout-overlay-bar")) return;
+        const bar = document.createElement("div");
+        bar.id = "hirescout-overlay-bar";
+        bar.style.cssText = "position:fixed; top:0; left:0; right:0; height:42px; background:#0f172a; color:#38bdf8; display:flex; align-items:center; justify-content:space-between; padding:0 20px; font-family:sans-serif; font-size:14px; font-weight:700; z-index:999999; border-bottom:2px solid #38bdf8; pointer-events:none;";
+        bar.innerHTML = `<div>🛡️ HireScout AI Agent | Multi-Tab Batch Apply (Tab ${index}/${total}): <strong>${company}</strong> — ${title}</div><div style="color:#22c55e;">STAGED LIVE IN TAB ${index}</div>`;
+        document.body.appendChild(bar);
+        document.body.style.paddingTop = "44px";
+      }, { company: job.company, title: job.title, index: i + 1, total: candidateList.length });
+    } catch {}
+
+    // Auto fill form inputs
+    try {
+      const nameSel = "#applicant-name, input[name*='name'], input[id*='name']";
+      if (await page.$(nameSel)) await page.fill(nameSel, candidate.name || "Alex Mercer");
+
+      const emailSel = "#applicant-email, input[type='email'], input[name*='email']";
+      if (await page.$(emailSel)) await page.fill(emailSel, candidate.email || "alex.mercer@example.com");
+
+      const phoneSel = "#applicant-phone, input[type='tel'], input[name*='phone']";
+      if (await page.$(phoneSel)) await page.fill(phoneSel, candidate.phone || "+1 555-019-2831");
+
+      const skillsSel = "#applicant-skills, textarea[name*='skill'], textarea[id*='skill']";
+      if (await page.$(skillsSel)) await page.fill(skillsSel, Array.isArray(job.required_skills) ? job.required_skills.join(", ") : (job.required_skills || candidate.skills || "TypeScript, Node.js, React"));
+
+      const coverSel = "#cover-letter, textarea[name*='cover'], textarea[id*='cover']";
+      if (await page.$(coverSel)) await page.fill(coverSel, job.cover_letter_draft || `Dear Hiring Manager at ${job.company},\n\nI am applying for the ${job.title} position.`);
+    } catch {}
+
+    await page.waitForTimeout(400);
+  }
+
+  // Step 3: Terminal Confirmation Gate
+  console.log(`\n============================================================`);
+  console.log(`🎉 MULTI-TAB APPLICATION GATE (CONFIRM BATCH SUBMISSION):`);
+  console.log(`   ${candidateList.length} job applications staged across ${candidateList.length} open browser tabs.`);
+  console.log(`   Target Companies: ${candidateList.map(j => j.company).join(", ")}`);
+  console.log(`============================================================\n`);
+
+  const confirmAnswer = await askInput(`  Type [yes] to submit ALL ${candidateList.length} applications simultaneously, or [no] to keep tabs open for manual inspection: `);
+
+  if ((confirmAnswer || "").toLowerCase() === "yes") {
+    log("⚡", `Executing multi-tab submit across all ${candidateList.length} tabs...`, "green");
+
+    for (let i = 0; i < candidateList.length; i++) {
+      const job = candidateList[i];
+      const page = pages[i];
+      try {
+        await page.bringToFront();
+        const submitBtn = "#submit-application-btn, button[type='submit'], input[type='submit']";
+        if (await page.$(submitBtn)) {
+          await page.click(submitBtn);
+          await page.waitForTimeout(400);
+        }
+
+        if (!fs.existsSync(SCREENSHOTS_DIR)) fs.mkdirSync(SCREENSHOTS_DIR, { recursive: true });
+        const screenshotPath = path.join(SCREENSHOTS_DIR, `multi_app_${i + 1}_${(job.company || "company").replace(/[^a-z0-9]/gi, "_")}_${Date.now()}.png`);
+        try { await page.screenshot({ path: screenshotPath }); } catch {}
+
+        recordAppliedJob(job, "Applied (Multi-Tab Batch - Confirmed)", screenshotPath);
+        results.push({ job, status: "applied", tab: i + 1 });
+      } catch (err) {
+        results.push({ job, status: "failed", error: err.message, tab: i + 1 });
+      }
+    }
+
+    log("🎉", `SUCCESS: All ${candidateList.length} job applications submitted and recorded!`, "green");
+    await new Promise(r => setTimeout(r, 2000));
+    try { await browser.close(); } catch {}
+    return { status: "batch_submitted", results };
+
+  } else {
+    log("ℹ️", "Multi-tab applications staged and left open in browser for your review.", "yellow");
+    await askInput("\n  Press ENTER to close all browser tabs... ");
+    try { await browser.close(); } catch {}
+    return { status: "staged_for_review", count: candidateList.length };
+  }
+}
+

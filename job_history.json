@@ -1,233 +1,207 @@
 {
   "dailyTop5": [
     {
-      "id": "google-sw-eng-3-web-2026",
-      "title": "Software Engineer III - Web Platform",
-      "company": "Google",
-      "location": "Bangalore, India / Remote",
-      "remote_type": "hybrid",
-      "salary_range": "₹28,000,000 - ₹42,000,000 / year ($120k+)",
-      "experience_required": "1-4 years",
-      "requirements": [
-        "Algorithms",
-        "Web APIs",
-        "React",
+      "id": "eyJqb2JfdGl0bGUiOiJSZW1vdGUgU2VuaW9yIFB5dGhvbiBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IlR1cmluZyIsImh0aWRvY2lkIjoiMHpoa0gyb3NFUWYwREhOWUFBQUFBQT09IiwiZ2wiOiJ1cyIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTM05xVm00M09YUnZiRTlKWW05R2IwTkZlVGg1WjBGR1pVcFZVVXQ0U0V0aVNrcEdiblpvVVRaNWNYWkZjVTFvTXpkZlNUSjZObk5DVTFCdUxYZGpRamxCWkhkZk5HMVZkSE5KZW5oNVdrTmhUR3hsU1VSaE1FbHhRMEo2TTNaeVMwWllXa2hpUkhWa1ZWZzNWalprYjFGSldGQnNPVWxGVkZVMWRIcHpia051ZFVzMGRVSVNGMnAyUkVKaGRIRklSa3RxVkRWT2IxQjBTVk40TkVGSkdpSkJSSE55T1daU1dHaDNOMFUyTW1Gd2FtbzNTa3hDVFdkMVYxaEJVa2w0YW5sUiIsImZjdiI6IjMiLCJmY19pZCI6IjB6aGtIMm9zRVFmMERITllBQUFBQUE9PSJ9",
+      "title": "Remote Senior Python Engineer",
+      "company": "Turing",
+      "location": "Anywhere",
+      "source": "LinkedIn",
+      "posted_date": "2 days ago",
+      "application_url": "https://www.linkedin.com/jobs/view/remote-senior-python-engineer-at-turing-4472895099?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "apply_type": "External Form",
+      "salary_range": "Competitive Market Rate",
+      "job_type": "Contractor",
+      "experience_level": "Senior (5+ yrs)",
+      "required_skills": [
+        "JavaScript",
         "Python",
-        "Node.js",
-        "Performance Tuning"
+        "Java",
+        "Go",
+        "Rust",
+        "AI"
       ],
-      "responsibilities": [
-        "Develop high-throughput web components",
-        "Optimize rendering pipeline",
-        "Collaborate globally"
-      ],
-      "posted_or_updated_date": "2026-09-12",
-      "application_deadline": "2026-10-30",
-      "num_applicants": 114,
-      "open_positions": 5,
-      "company_rating": 4.7,
-      "company_review_snippet": "Exceptional benefits, smart peers, cutting-edge AI infrastructure.",
-      "application_url": "https://careers.google.com",
-      "source": "Company Career Page",
-      "match_score": 60,
+      "role_summary": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports custom...",
+      "full_description": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports customers in two ways: first, by accelerating frontier research with high-quality data, advanced training pipelines, plus top AI researchers who specialize in software engineering, logical reasoning, STEM, multilinguality, multimodality, and agents; and second, by applying that expertise to help enterprises transform AI from proof of concept into proprietary intelligence with systems that perform reliably, deliver measurable impact, and drive lasting results on the P&L.\n\n\n\n\nIdeal Background:\n\nThis role is ideal for engineers who have built production systems at companies like Google, Microsoft, Apple, Amazon, Meta, or similar high-scale engineering organizations. We especially welcome graduates from top computer science programs such as Stanford, MIT, Carnegie Mellon, UC Berkeley, Georgia Tech, and comparable institutions — though exceptional experience and skill always take precedence over pedigree.\n\n\n\n\nProject Overview:\n\nAs a Software Engineering evaluator, you will create cutting-edge datasets for training, benchmarking, and advancing large language models, collaborating closely with researchers. This includes curating code examples, providing precise solutions, and making corrections — with a primary focus on Python across backend services, data pipelines, and ML infrastructure, alongside JavaScript (including ReactJS), C/C++, Java, Rust, and Go. You will evaluate and refine AI-generated code for efficiency, scalability, and reliability, and work with cross-functional teams to enhance enterprise-level AI-driven coding solutions.\n\n\n\n\nWhat Does a Typical Day Look Like?\n\nWork on AI model training initiatives by curating code examples, building solutions, and correcting code — primarily in Python, with additional work in JavaScript (including ReactJS), C/C++, Java, Rust, and Go.Evaluate and refine AI-generated code to ensure that it is efficient, scalable, and reliable.Collaborate with cross-functional teams to enhance AI-driven coding solutions against industry performance benchmarks.Build agents and automated verification tools in Python that can verify the quality of code and identify error patterns.Hypothesize on steps in the software engineering cycle (prototyping, architecture design, API design, production implementation, launch, experiments, monitoring, operational maintenance) and evaluate model capabilities on them.Design verification mechanisms that can automatically verify a solution to a software engineering task.\n\n\nRequired Skills:\n\nSeveral years of software engineering experience (3 years or more)Strong expertise in Python with deep knowledge of frameworks, tooling, and best practices for building production-grade software.Experience building full-stack applications and deploying scalable software using modern languages and tools.Deep understanding of software architecture, design, development, debugging, and code quality/review assessment.Excellent oral and written communication skills for clear, structured evaluation rationales.\n\n\nEngagement Details:\n\nCommitment: flexible engagement, minimum 10 hrs/week, up to 40 hrs/weekType: Contractor (no medical/paid leave)Duration: 1 month (potential extensions based on performance and fit)Location: Candidates must be based in the United States\n\n\nEvaluation Process:\n\nThe application process takes 15–30 minutes.Completion of an AI video interview is required.",
+      "match_score": 67,
+      "why_suitable": "Strong match (67%) for your background in JavaScript, Python, Java. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+      "cover_letter_draft": "Dear Hiring Manager at Turing,\n\nI am writing to express my strong interest in the Remote Senior Python Engineer position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire Turing's engineering standards and look forward to contributing to your team's success.",
       "match_breakdown": {
-        "skills_30": 20,
+        "skills_30": 15,
         "title_20": 10,
-        "salary_15": 0,
-        "deadline_10": 5,
-        "rating_10": 10,
-        "freshness_10": 8,
-        "competition_5": 7
+        "salary_15": 12,
+        "deadline_10": 8,
+        "rating_10": 9,
+        "freshness_10": 9,
+        "competition_5": 4
       },
-      "why_suitable": "This role aligns well with your skills in Python, React, and algorithms. The salary is above your target, but the role's requirements closely match your expertise.",
-      "cover_letter_draft": "Dear Hiring Team, I am thrilled to apply for the Software Engineer III position at Google. My proficiency in Python and React, combined with my experience in algorithm design, makes me a strong fit for your Web Platform team. I am eager to contribute to your high-performance web components and collaborate with your global team.",
       "resume_bullet_rewrites": [
-        "Designed and implemented algorithms to optimize web application performance.",
-        "Developed web applications using React and Python, ensuring scalability and efficiency.",
-        "Collaborated on performance tuning projects to enhance user experience."
+        "Architected scalable Node.js and frontend features matching Turing's stack",
+        "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+        "Engineered resilient automated tools and API integrations for production services"
       ]
     },
     {
-      "id": "indeed-vercel-nextjs-2026",
-      "title": "Core Web Developer - DX Team",
-      "company": "Vercel",
-      "location": "Remote (Worldwide)",
-      "remote_type": "remote",
-      "salary_range": "$120,000 - $150,000 / year",
-      "experience_required": "1-3 years",
-      "requirements": [
-        "Next.js",
-        "Node.js",
-        "TypeScript",
-        "Serverless",
-        "Edge Functions"
+      "id": "eyJqb2JfdGl0bGUiOiJQeXRob24gU29mdHdhcmUgRW5naW5lZXIg4oCTIFdvcmsgRnJvbSBIb21lIiwiY29tcGFueV9uYW1lIjoiSVQgUmVjcnVpdGVycyBmb3IgVGVjaCBKb2JzIC0gaXRyZWNydWl0ZXJzLnRlY2hub2xvZ3kiLCJodGlkb2NpZCI6ImlITU5mR2VwS3NjMUxmSWlBQUFBQUE9PSIsImdsIjoidXMiLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1doVVRVUjVTUzAwVDFGd2JGTnJabGhqTW5CV09FeGhYMU5JYzBWSGJuaGpXbVF4U2toc1YxVmhNelpYUkVaVldDMXBZM1o2ZURWS1NEWjVhblp1UkhaUWJWbzFRV3hKWDNwcFRubDZRamhMZW1wMlRuVlJYMU56UTBNMmNIWjVOa1pJYkVSSE9XTXhTRXA2UkhWaFdYcEZRMlpFY1RKVGJHSnNaV1Y2VDBOTU4xb3pXWElTRjJwMlJFSmhkSEZJUmt0cVZEVk9iMUIwU1ZONE5FRkpHaUpCUkhOeU9XWlRhak5SUW1rdFJXSlZNRE5tV1daWlRtUndZakk0Y21aVE1VcFIiLCJmY3YiOiIzIiwiZmNfaWQiOiJpSE1OZkdlcEtzYzFMZklpQUFBQUFBPT0ifQ==",
+      "title": "Python Software Engineer – Work From Home",
+      "company": "IT Recruiters for Tech Jobs - itrecruiters.technology",
+      "location": "Anywhere",
+      "source": "IT Recruiters For Tech Jobs Itrecruiters.technology",
+      "posted_date": "3 days ago",
+      "application_url": "https://www.itrecruiters.technology/job/python-software-engineer-work-from-home/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "apply_type": "External Form",
+      "salary_range": "Competitive Market Rate",
+      "job_type": "Full-time",
+      "experience_level": "Mid-Senior (3-5 yrs)",
+      "required_skills": [
+        "Python",
+        "SQL",
+        "Linux"
       ],
-      "responsibilities": [
-        "Improve Next.js developer experience",
-        "Maintain core framework open source"
-      ],
-      "posted_or_updated_date": "2026-09-12",
-      "application_deadline": "2026-10-05",
-      "num_applicants": 34,
-      "open_positions": 2,
-      "company_rating": 4.8,
-      "company_review_snippet": "Ship features to millions of developers every single day.",
-      "application_url": "https://vercel.com/careers",
-      "source": "Indeed",
-      "match_score": 55,
+      "role_summary": "Python Software Engineer – Work From Home\nA proprietary trading firm with locations in Chicago, London, New York and Amsterdam, is seeking a talented and self-motivated Python Software Engineer to join a growing techn...",
+      "full_description": "Python Software Engineer – Work From Home\nA proprietary trading firm with locations in Chicago, London, New York and Amsterdam, is seeking a talented and self-motivated Python Software Engineer to join a growing technical operations team.  Company culture emphasizes teamwork and focuses on continuous integration and test-driven development.  This position will work closely with fellow operations and software engineers to make impactful contributions to Python, database, and web-based systems.  Successful applicants for this position will be working in an agile project management process on a wide variety of projects including workflow automation, real time monitoring systems and data quality analysis.  This is a 100% Remote opening.\n\n\nQualifications:\n\n\n– Bachelor’s Degree from a 4-year university in computer science, information science or related technical field.\n\n– Strong GPA (3.5 or higher).\n\n– Strong understanding of Python as a language.\n\n– At least 2+ years of experience in a professional environment.\n\n– Experience working in a Linux environment.\n\n– Assist in operational monitoring using custom built utilities.\n\n– Excellent communication skills.\n\n– Self-motivated personality with a passion for working in a fast-paced environment.\n\n– Experience in finance or trading is a definite plus.\n\n– Robust development skill set including testing, debugging and problem solving.\n\n\nBenefits include medical insurance, retirement plan, PTO, etc.  Salary: 80K+ DOE.  Keywords:  Chicago IL Jobs, Python Software Engineer, Python, Linux, SQL, Programmer Analyst, Programming, Software Developer, Trading, Financial, Chicago Recruiters, Information Technology Jobs, IT Jobs, Chicago Recruiting\n\n\nLooking for a top IT recruiter to help your company hire for similar positions in Chicago, IL or in other cities? Our IT recruiters for tech jobs and staffing companies can help.\nWe help companies that are looking to hire Python Software Engineers for jobs in Chicago, Illinois and in other cities too.  Please contact our IT recruiters for tech jobs and IT recruiting companytoday!  Phone 630-428-0600 ext. 14 or email us at jobs@itrecruiters.technology. Click here to submit your resume for this job and others.\n\n\n\n\nAtlanta IT Recruiters, Austin IT Recruiters, Baltimore IT Recruiters, Boston IT Recruiters, Charlotte IT Recruiters, Chicago IT Recruiters, Cincinnati IT Recruiters, Cleveland IT Recruiters, Columbus IT Recruiters, Dallas IT Recruiters, Denver IT Recruiters, Detroit IT Recruiters, Fort Lauderdale IT Recruiters, Houston IT Recruiters, Indianapolis IT Recruiters, Jacksonville IT Recruiters, Kansas City IT Recruiters, Los Angeles IT Recruiters, Miami IT Recruiters, Minneapolis IT Recruiters, Nashville IT Recruiters, New Jersey IT Recruiters, New York City IT Recruiters, Philadelphia IT Recruiters, Phoenix IT Recruiters, Raleigh-Durham IT Recruiters, Salt Lake City IT Recruiters, San Antonio IT Recruiters, San Diego IT Recruiters, San Francisco IT Recruiters, San Jose IT Recruiters, Seattle IT Recruiters, Silicon Valley IT Recruiters, St Louis IT Recruiters, Tampa IT Recruiters, Washington DC IT Recruiters\n\n   Information For Employers > General Information | About Us | How We Work | Trading Industry | Healthcare Information Technology | Government Contract Expertise | Request Services\n\n  Information For Job Seekers > General Information | Find A Job | Submit Resume | How We Work | Trading Industry Tech Pros | Healthcare (HIT) | Security-Cleared | Successful Interviewing | Sample Interview Questions\n\n   General Information > About Us | Our Values | Meet Our President | Position Types | Technologies | Blog | Coverage Area\n\n  [aioseo_breadcrumbs]",
+      "match_score": 64,
+      "why_suitable": "Strong match (64%) for your background in Python, SQL, Linux. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+      "cover_letter_draft": "Dear Hiring Manager at IT Recruiters for Tech Jobs - itrecruiters.technology,\n\nI am writing to express my strong interest in the Python Software Engineer – Work From Home position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire IT Recruiters for Tech Jobs - itrecruiters.technology's engineering standards and look forward to contributing to your team's success.",
       "match_breakdown": {
-        "skills_30": 20,
+        "skills_30": 12,
         "title_20": 10,
-        "salary_15": 0,
+        "salary_15": 12,
         "deadline_10": 8,
-        "rating_10": 10,
+        "rating_10": 9,
+        "freshness_10": 9,
+        "competition_5": 4
+      },
+      "resume_bullet_rewrites": [
+        "Architected scalable Node.js and frontend features matching IT Recruiters for Tech Jobs - itrecruiters.technology's stack",
+        "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+        "Engineered resilient automated tools and API integrations for production services"
+      ]
+    },
+    {
+      "id": "eyJqb2JfdGl0bGUiOiJTZW5pb3IgU29mdHdhcmUgRW5naW5lZXIgKGZ1bGx5IHJlbW90ZSBkb21lc3RpY2FsbHkgaW4gVVNBKSIsImNvbXBhbnlfbmFtZSI6Ik1PTFRFTiBDbG91ZCIsImh0aWRvY2lkIjoicFZyQ1hxOFNuN2JDNW90MUFBQUFBQT09IiwiZ2wiOiJ1cyIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTMUUzVjJWVmVVZFFSV0p4UkZrMGNGSlZhbVpWU1hObFlYbDZlVE5NUldGWllUVmxlWGhoZVc5SGRIVTVhMUpUYUUwdFNub3llalkwV0V0NVFuTmZRVXd3ZFhGRE5qWlBSeTB4YmxseVpWVndTRjh4V1RVMlVGbDJSakpEZDJkUlVHRldNWGgxUzFobk1EbFNXWE5GUlRoRFFUUlhOMEZ0UWkxQ1VWTlJUMmRmUVRFemRrUVNGMnAyUkVKaGRIRklSa3RxVkRWT2IxQjBTVk40TkVGSkdpSkJSSE55T1daUmFWTkNkV3d6VjIxUk1VSlpVVTlhUzNOUk5uUjBOMUZaYkc5UiIsImZjdiI6IjMiLCJmY19pZCI6InBWckNYcThTbjdiQzVvdDFBQUFBQUE9PSJ9",
+      "title": "Senior Software Engineer (fully remote domestically in USA)",
+      "company": "MOLTEN Cloud",
+      "location": "Anywhere",
+      "source": "Wellfound",
+      "posted_date": "25 days ago",
+      "application_url": "https://wellfound.com/jobs/3544540-senior-software-engineer-fully-remote-domestically-in-usa?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "apply_type": "External Form",
+      "salary_range": "Competitive Market Rate",
+      "job_type": "Full-time",
+      "experience_level": "Senior (5+ yrs)",
+      "required_skills": [
+        "JavaScript",
+        "Vue",
+        "Python",
+        "MongoDB"
+      ],
+      "role_summary": "About us: Molten Cloud empowers rights-holders of media content. Molten Cloud platform transforms and simplifies today's complex intellectual property rights, content and licensing operations — so that rights-holders ...",
+      "full_description": "About us: Molten Cloud empowers rights-holders of media content. Molten Cloud platform transforms and simplifies today's complex intellectual property rights, content and licensing operations — so that rights-holders are able to efficiently distribute and monetize their content globally. Our platform is used by film/TV organizations across 6 continents of the world to manage over 200M rights, hosting close to 10% of all movies (per imdb). Molten Cloud is a Cambridge-based startup, founded in the heart of MIT, committed to modernizing the archaic value-chain of media operations. We are a diverse team of hackers, hustlers, and hipsters, and are backed by leading media-tech investors such as Jack Dorsey, Ashton Kutcher and Lakestar.  \n\n\n\nAs a Senior Software Engineer at Molten Cloud, you will join our product team in the following areas:\n\nTake ownership of select modules - build, deploy and iterate upon them in Agile sprints\n\nContribute to the design, architecture, research and development of Molten Cloud’s core platform and applications (which may include aspects of data transmission, cryptography, back-end and front-end development) \n\nTest accuracy, performance and scalability to deploy robust systems for global user groups\n\nIncorporate user centricity in the product, meet directly with users to collect requirements and feedback to continuously improve and optimize the user experience \n\nCollaborate with the business development team to best articulate and share the value proposition of your system to its users, and with our technology partners to design and integrate broader solutions   \n\n\n\nAs an ideal fit for this role, you are:\n\nAnalytical: you have a rigorous academic background in computer science, math, physics or a similar field, and a proven ability to think original, learn new skills and build innovative software products\n\nEntrepreneurial: you thrive in the startup environment, you take ownership of your work, you are passionate about ambitious ideas, and you can build teams around a shared vision; prior startup experience is a plus\n\nTeam-player: you recognize that your success lies in the success of the team, you take initiatives to continuously improve collaboration, productivity and performance of the team\n\nGoal-oriented: when things seem to get overwhelming for most people, you have the demonstrated ability to put things in perspective, prioritize, and deliver results\n\n\n\nTechnical skill set: you are expected to be experienced and competent in Python, Javascript and MongoDB. Experience in API documentation, Vue.js, and devops tools is a strength, but is not required. \n\n\n\nOur culture is about being rigorous at work and celebrating our big and small wins as a team. At Molten Cloud, you will have the opportunity to own and lead your own workstreams, learn from exceptional individuals on the team, and help build technology that matters across the world. From day one, every developer is given the power, support, and trust to deploy production code. You will receive competitive compensation with benefits including health, vision, dental, remote work, flexible (unlimited) time off, team offsites and more.",
+      "match_score": 64,
+      "why_suitable": "Strong match (64%) for your background in JavaScript, Vue, Python. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+      "cover_letter_draft": "Dear Hiring Manager at MOLTEN Cloud,\n\nI am writing to express my strong interest in the Senior Software Engineer (fully remote domestically in USA) position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire MOLTEN Cloud's engineering standards and look forward to contributing to your team's success.",
+      "match_breakdown": {
+        "skills_30": 15,
+        "title_20": 8,
+        "salary_15": 12,
+        "deadline_10": 8,
+        "rating_10": 9,
         "freshness_10": 8,
         "competition_5": 4
       },
-      "why_suitable": "This role requires Node.js and TypeScript, which match your skills. The salary is above your target, but the role's focus on developer experience aligns well with your interests.",
-      "cover_letter_draft": "Dear Hiring Team, I am excited to apply for the Core Web Developer position at Vercel. My expertise in Node.js and TypeScript, combined with my passion for developer experience, makes me a strong fit for your DX Team. I am eager to contribute to your open-source projects and help improve Next.js for developers worldwide.",
       "resume_bullet_rewrites": [
-        "Developed web applications using Node.js and TypeScript, focusing on performance and scalability.",
-        "Collaborated on open-source projects, contributing to developer experience improvements.",
-        "Implemented serverless solutions to enhance application efficiency."
+        "Architected scalable Node.js and frontend features matching MOLTEN Cloud's stack",
+        "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+        "Engineered resilient automated tools and API integrations for production services"
       ]
     },
     {
-      "id": "unstop-openai-agent-eng-2026",
-      "title": "AI Agent & Browser Automation Engineer",
-      "company": "OpenAI",
-      "location": "Remote / San Francisco, CA",
-      "remote_type": "remote",
-      "salary_range": "$180,000 - $240,000 / year",
-      "experience_required": "2-5 years",
-      "requirements": [
-        "LLM Orchestration",
-        "Playwright",
-        "Node.js",
+      "id": "eyJqb2JfdGl0bGUiOiJTciBTb2Z0d2FyZSBFbmdpbmVlciAtIEh5YnJpZCAoSGlyaW5nIGFsbCBsZXZlbHMpIFJlbW90ZSAvIFRlbGVjb21tdXRlIEpvYnMiLCJjb21wYW55X25hbWUiOiJDb2Rlc2NyYXRjaCBMTEMiLCJodGlkb2NpZCI6IkdORFhHTEx2UDI2M3EtblhBQUFBQUE9PSIsImdsIjoidXMiLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwUzBsamVFRkVVMVpCU3poaVJYRmlTV1JmTjFSalZVOWxTVmhIZGxwalFpMXZNV2RTUWpSNFZXc3RPRXhuVlZoV1dYRk1VbE4zU2toQk5sSjFRbEI1Y0hZMVNVVjVURWxtYUMxb05qaHpSMGRJVGtGU1ZETnhjVmhrZERKUVRWbEJZV05WVlVOeWVVcGtNbUZMVTJaSk9XaFZPWE51V2xKclluWjFTV2h1YzNKdFNsaHpURk1TRjJwMlJFSmhkSEZJUmt0cVZEVk9iMUIwU1ZONE5FRkpHaUpCUkhOeU9XWlVhRXRxVkhOWk5UUjRaa3BXYkZWb1owZFdNbE5PVUdWVmRHRkIiLCJmY3YiOiIzIiwiZmNfaWQiOiJHTkRYR0xMdlAyNjNxLW5YQUFBQUFBPT0ifQ==",
+      "title": "Sr Software Engineer - Hybrid (Hiring all levels) Remote / Telecommute Jobs",
+      "company": "Codescratch LLC",
+      "location": "Anywhere",
+      "source": "Clearance Jobs",
+      "posted_date": "1 day ago",
+      "application_url": "https://www.clearancejobs.com/jobs/9213791/sr-software-engineer-hybrid-hiring-all-levels?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "apply_type": "External Form",
+      "salary_range": "Competitive Market Rate",
+      "job_type": "Full-time",
+      "experience_level": "Senior (5+ yrs)",
+      "required_skills": [
+        "TypeScript",
+        "React",
         "Python",
-        "Reinforcement Learning"
+        "Java",
+        "SQL",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "FastAPI",
+        "Django",
+        "Git",
+        "CI/CD",
+        "Playwright",
+        "Machine Learning"
       ],
-      "responsibilities": [
-        "Design autonomous AI agents",
-        "Build web browsing primitives",
-        "Optimize benchmark scores"
-      ],
-      "posted_or_updated_date": "2026-09-11",
-      "application_deadline": "2026-10-20",
-      "num_applicants": 62,
-      "open_positions": 4,
-      "company_rating": 4.9,
-      "company_review_snippet": "Pioneering AGI research environment with incredible talent density.",
-      "application_url": "https://openai.com/careers",
-      "source": "Unstop / OpenAI Careers",
-      "match_score": 50,
+      "role_summary": "Codescratch is currently seeking self-motivated and talented Software Engineers to build some cutting-edge analytics and tools in support of cyber mission space. Join our team to contribute to innovative engineering p...",
+      "full_description": "Codescratch is currently seeking self-motivated and talented Software Engineers to build some cutting-edge analytics and tools in support of cyber mission space. Join our team to contribute to innovative engineering projects, creating reliable, scalable, and high-performing software for efficient data processing and informed decision-making. This position is ideal for individuals who are passionate about designing efficient, secure, and scalable software and thrive in a collaborative environment. You'll own your technical designs, help shape the big picture. This is your chance to work on real-world challenges in a place where you can learn and grow while supporting mission-critical applications!\n\n\n\nThe ideal candidate will be an experienced software engineer with a strong foundation in designing, developing, and maintaining high-quality software solutions. Collaboration and innovation are at the core of this role, requiring a proactive approach to problem-solving and continuous learning.\n\n\n\n*This position requires candidates to be local (or willing to relocate) to one of the locations on the posting for hybrid flexibility.\n\n\n\nKey Responsibilities:\n\n\n\nDesign, develop, and maintain scalable, high-performance back-end services, APIs, and UI for data management and visualization tools. \n\nOptimize database performance, data modeling, and processing for large-scale applications. \n\nEnhance existing back-end architecture to improve system responsiveness, security, and scalability. \n\nDevelop and maintain CI/CD pipelines for automated testing and deployment. \n\nWork alongside program managers, UX designers, software engineers, hardware engineers, subject matter experts, and customers. \n\nConduct ongoing code documentation, code coverage, and build version control. \n\nDevelop ongoing unit-based tests and regression tests, create acceptance criteria for QC, conduct peer-review w/ other team members, and review code for others. \n\nPractice and improve on Agile/Scaled Agile Framework (SAFe) development methodologies and tools. \n\nOptimize software performance by identifying bottlenecks and implementing improvements.\n\n\n\nWhy Codescratch?\n\n \n\nCodescratch, is a leading software services company that specializes in developing innovative solutions, driving improvements, and optimizing operations in the public and private sectors. Proven track record of success in tackling complex, large-scale challenges that demand out-of-the-box thinking and innovative approaches. Our focus is on delivering maximum value to our customers, mitigating risks and ensuring the highest quality and efficiency. We provide unprecedented mission successes through software innovations, and could not do it without our amazing employees!\n\n\n\nAs a group of software engineers that have worked together over a decade in the defense industry, we set out to create an organization that chose the best and left off the worst of our employment experiences. We decided to form a company that would focus on people and the work while setting aside bureaucracy and egos. We are a small company that focuses on our employees first. We are committed to reducing operational expenditures and optimizing administrative procedures, prioritizing employee compensation over corporate infrastructure investment. \n\n\n\nHighlights of our benefits package:\n\n\n\nWe are proud to offer a stellar 401(k) plan on day one. \n\nCodescratch contributes 15% of your earnings each pay period, on top of any contribution you choose to make. No vesting schedule, no lump sum, no gotchas! Our team members stick around because they love the company, not because of gimmicks.\n\nContribute 12% of your rate towards your premium for healthcare, vision and dental.\n\nFlexibility - get paid for every hour that you work, even if it's over 40! \n\nEducation/training allowances.\n\nWe invest in you and cover the cost of certifications relevant to your job. We also reimburse some of the cost for books, audiobooks and online video courses.\n\n\n\nBasic Qualifications:\n\n\n\n*NOTE: We have several openings for a new award! We can hire ALL levels, with a minimum of 5 years of relevant experience. Please apply and we will review based on experience/expertise (compensation varies based on years of experience of the applicant)!\n\n\n\n10+ years of relevant Software Engineering/Development experience.\n\nBachelor's degree in Computer Science, Information Assurance, or related discipline from an accredited college or university is required. \n\n    *One year of relevant experience may be substituted for each year of required education. Relevant certifications may be substituted for education or years of experience\n\nProgramming skills in Python (Django, DRF, FastAPI) or React/TypeScript with Material UI, Git, SQL, Playwright/Cypress Test Libraries, Testing, Debugging. \n\nExperience with Data Visualization, RESTful APIs, RESTful Web Services, Orchestration and Containerization (e.g. Kubernetes, Docker). \n\nExperience with Golang, Kotlin/Java, and/or Python\n\nU.S. citizenship required\n\nActive TS/SCI w. poly Clearance required\n\nMust be local or willing to relocate to the DMV Metropolitan area\n\n\n\nPreferred Skills and Experience:\n\n\n\nIdeally 5 or more years of relatable software engineering experience is preferred\n\nFamiliarity in database architecture, user experience (UX), and software development/deployment processes, including toolkits such as Git, Artifactory, and SonarQube\n\nKnowledgeable in Artificial Intelligence, specifically Large Language Models\n\nA strong understanding of cybersecurity best practices, encryption methods, and secure coding techniques\n\nFamiliar with observability tools, including Prometheus, Grafana, and the ELK stack\n\nAbility to effectively communicate intricate technical information to individuals with non-technical backgrounds and to senior leadership\n\nExperience with Machine Learning Analytics\n\nExperience with Amazon Web Services (AWS)\n\nExperience with asynchronous messaging systems (RabbitMQ, Apache Kafka, etc.)\n\nExperience monitoring application performance with metrics (Prometheus, InfluxDB, Grafana) and logs with ELK Stack (ElsticSearch, Logstash, Kibana)\n\nExcellent communication and collaboration abilities\n\nExperience working independently to solve complex problems\n\n\n\nSalary Range\n\n\n\nPay range $175,000 - $240,000. Plus 15% vested 401k contribution!\n\n\n\nThe pay range for this job level is a general estimated guideline only and not a guarantee of compensation or salary. Additional factors considered in extending an offer include (but are not limited to) responsibilities of the job, education, experience, knowledge, skills, and abilities, as well as internal equity, alignment with market data, applicable bargaining agreement (if any), or other law.",
+      "match_score": 63,
+      "why_suitable": "Strong match (63%) for your background in TypeScript, React, Python. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+      "cover_letter_draft": "Dear Hiring Manager at Codescratch LLC,\n\nI am writing to express my strong interest in the Sr Software Engineer - Hybrid (Hiring all levels) Remote / Telecommute Jobs position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire Codescratch LLC's engineering standards and look forward to contributing to your team's success.",
       "match_breakdown": {
-        "skills_30": 20,
-        "title_20": 5,
-        "salary_15": 0,
-        "deadline_10": 5,
-        "rating_10": 10,
-        "freshness_10": 8,
-        "competition_5": 2
+        "skills_30": 12,
+        "title_20": 8,
+        "salary_15": 12,
+        "deadline_10": 8,
+        "rating_10": 9,
+        "freshness_10": 10,
+        "competition_5": 4
       },
-      "why_suitable": "This role requires Python and Node.js, which match your skills. However, the salary is above your target, and the role focuses on AI and browser automation, which may not fully align with your experience.",
-      "cover_letter_draft": "Dear Hiring Team, I am excited to apply for the AI Agent & Browser Automation Engineer position at OpenAI. My expertise in Python and Node.js, combined with my interest in AI, makes me a strong candidate for this role. I am eager to contribute to your innovative projects and learn more about autonomous agents.",
       "resume_bullet_rewrites": [
-        "Developed applications using Python and Node.js, focusing on performance and scalability.",
-        "Collaborated on AI-related projects, exploring machine learning and automation.",
-        "Implemented web automation solutions to streamline workflows."
+        "Architected scalable Node.js and frontend features matching Codescratch LLC's stack",
+        "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+        "Engineered resilient automated tools and API integrations for production services"
       ]
     },
     {
-      "id": "linkedin-stripe-sr-fullstack-2026",
-      "title": "Senior Full Stack Engineer (Node.js & React)",
-      "company": "Stripe",
-      "location": "Remote / San Francisco, CA",
-      "remote_type": "remote",
-      "salary_range": "$145,000 - $185,000 / year",
-      "experience_required": "2-5 years",
-      "requirements": [
-        "JavaScript",
+      "id": "eyJqb2JfdGl0bGUiOiJTdGFmZiBTb2Z0d2FyZSBFbmdpbmVlciAtIFByb3ZpZGVyIEdyb3d0aCBcdTAwMjYgQWN0aXZhdGlvbiAoUmVtb3RlKSIsImNvbXBhbnlfbmFtZSI6IlBhdGgiLCJodGlkb2NpZCI6Ikd2amo5X21mVHY0bXRxR0NBQUFBQUE9PSIsImdsIjoidXMiLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwVERRMmIxWlFURUkxU201T2EzVjJiREJ1WlZKSGNESlRjbkJTYUVSUE0wbEZXakZPYlVWVGFtdDFkbTk2U2xwT1NFWTFhRE5uUjJwTWJUQlBhVTFhV0ROd2VtWlNabmQwVkdwTlpFZGplVVJzZGxoWk5qSnNjRGQyZEZKMFQwcFNOVlJ4V1Y5cE16RlBkUzFmY0c0emQzWm5MVlF4WnpGeE5YZHJSMU5JZGtodFkzQlBiazBTRjJwMlJFSmhkSEZJUmt0cVZEVk9iMUIwU1ZONE5FRkpHaUpCUkhOeU9XWlRWM2hpU25OSVJXZFZWM1ZVT0dwZlVIVjJNbWh5WlZOVlQyeDMiLCJmY3YiOiIzIiwiZmNfaWQiOiJHdmpqOV9tZlR2NG10cUdDQUFBQUFBPT0ifQ==",
+      "title": "Staff Software Engineer - Provider Growth & Activation (Remote)",
+      "company": "Path",
+      "location": "Anywhere",
+      "source": "Jobgether",
+      "posted_date": "1 day ago",
+      "application_url": "https://jobgether.com/offer/6ac0854a8a27695aea1fb309-staff-software-engineer---provider-growth-activation-remote?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+      "apply_type": "External Form",
+      "salary_range": "Competitive Market Rate",
+      "job_type": "Full-time",
+      "experience_level": "Senior (5+ yrs)",
+      "required_skills": [
         "TypeScript",
         "Node.js",
         "React",
-        "API Architecture",
-        "Distributed Systems"
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "AI"
       ],
-      "responsibilities": [
-        "Build scalable payment APIs",
-        "Optimize frontend dashboard performance",
-        "Design microservices"
-      ],
-      "posted_or_updated_date": "2026-09-11",
-      "application_deadline": "2026-10-15",
-      "num_applicants": 28,
-      "open_positions": 3,
-      "company_rating": 4.8,
-      "company_review_snippet": "Top tier engineering culture with high autonomy and modern stack.",
-      "application_url": "https://stripe.com/jobs",
-      "source": "LinkedIn Jobs",
-      "match_score": 45,
+      "role_summary": "This a Full Remote job, the offer is available from: United States\n\n \n\nWe believe that mental health is just as important as physical health. We recognize that mental health issues can be complex and multifaceted, and...",
+      "full_description": "This a Full Remote job, the offer is available from: United States\n\n \n\nWe believe that mental health is just as important as physical health. We recognize that mental health issues can be complex and multifaceted, and we are dedicated to treating the whole person, not just the symptoms.\n\nWe aim to create a world where mental health is no longer stigmatized or marginalized, but rather is embraced as an integral part of one's overall well-being. \n\nWe believe that by providing quality care that is both evidence-based and compassionate, we can empower individuals to take charge of their mental health and achieve their full potential. We are passionate about making a positive impact on the lives of those struggling with mental health issues and we strive to be a force for positive change in the field of mental healthcare.\n\nRula is a remote-first company. We currently hire in most U.S. states, with the exception of Hawaii.\n\nAbout the Role\n\nWe are looking for a Staff Software Engineer to join Rula’s Provider Growth, Acquisition & Supply Management team. Our goal is to ensure that Rula has the right providers to meet patient demand. Access to care is fundamentally a supply problem, and our team is here to solve that by driving meaningful impact on how providers find Rula, onboard, and build sustainable and flexible practices on our platform. Our work sits at the intersection of provider experience and marketplace dynamics, increasing supply where it matters and reducing friction in how providers deliver care – so patients can find help quickly.\n\nAs a Staff Software Engineer, you’ll play a central role in shaping this direction by bringing order to ambiguity, designing robust systems, and delivering software that directly impacts the provider experience. We’re looking for product-minded engineers who see problems, move quickly, and help the team build the right solution.\n\nRequired Qualifications\n\n8+ years of related professional software engineering experience building scalable distributed systems\n\nStrong full-stack engineering experience building and maintaining production web applications, with depth in modern frontend frameworks, backend APIs, data modeling, and distributed systems\n\nExperience leading initiatives across multiple teams and influencing technical strategy without direct authority\n\nHands-on experience using AI-assisted software development tools (such as Claude Code) as part of regular engineering workflows\n\nA passion for fostering a high-performing engineering culture through code reviews, technical documentation, and mentoring junior engineers\n\nStrong communication skills with the ability to align technical and non-technical stakeholders around a shared vision\n\nPreferred Qualifications\n\nExperience building AI-powered engineering workflows, tooling, or automation that was adopted by others and measurably improved development speed or quality\n\nExperience driving projects end-to-end, from discovery and design through implementation, launch, and post-launch support\n\nExperience with Node.js, React, Typescript, Kafka, AWS, Docker, Kubernetes\n\nPrevious experience thriving in a fast-paced, high-growth startup environment where you’ve helped scale an engineering organization\n\nWe're serious about your well-being! As part of our team, full-time employees receive:\n\n100% remote work environment: Working hours to support a healthy work-life balance, ensuring you can meet both professional and personal commitments (must be based in United States, currently not hiring in Hawaii)\n\nAttractive pay and benefits: Full transparency of pay ranges regardless of where you live in the United States\n\nComprehensive health benefits: Medical, dental, vision, life, disability, and FSA/HSA\n\n401(k) plan access: Start saving for your future\n\nGenerous time-off policies: Including 2 company-wide shutdown weeks each year for self-care (for most employees)\n\nPaid parental leave: Available for all parents, including birthing, non-birthing, adopting, and fostering\n\nEmployee Assistance Program (EAP): Supporting your mental and physical health\n\nQuarterly department stipend: Fun team-building activities or in-person gatherings\n\nCommunity and employee resource groups: Participate in groups that celebrate employee identity and lived experiences, fostering a sense of community and belonging for all\n\nHome office stipend: New hire home office stipend & $50 monthly stipend to help cover internet or cell phone expenses\n\nWellness at Rula program: Year-round wellness initiatives and a $50/month wellness stipend\n\nOur team\n\nWe believe that diversity, equity, and inclusion are fundamental to our mission of making mental healthcare work for everyone.  We are dedicated to having a culture of inclusion that will support our employees in feeling safe, seen, heard, and valued.\n\nThis offer from \"Path\" has been enriched by Jobgether.com and got a 0% flex score.",
+      "match_score": 63,
+      "why_suitable": "Strong match (63%) for your background in TypeScript, Node.js, React. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+      "cover_letter_draft": "Dear Hiring Manager at Path,\n\nI am writing to express my strong interest in the Staff Software Engineer - Provider Growth & Activation (Remote) position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire Path's engineering standards and look forward to contributing to your team's success.",
       "match_breakdown": {
-        "skills_30": 15,
-        "title_20": 5,
-        "salary_15": 0,
-        "deadline_10": 5,
-        "rating_10": 10,
-        "freshness_10": 8,
-        "competition_5": 2
-      },
-      "why_suitable": "This role requires JavaScript and React, which match your skills. However, the salary is significantly higher than your target, and the role is more senior than your current experience level.",
-      "cover_letter_draft": "Dear Hiring Manager, I am excited to apply for the Senior Full Stack Engineer position at Stripe. With my expertise in JavaScript and React, I am confident in my ability to contribute to your team. While I may not meet all the seniority requirements, my passion for building scalable applications and my quick learning ability make me a strong candidate.",
-      "resume_bullet_rewrites": [
-        "Developed applications using JavaScript and React, ensuring high performance and scalability.",
-        "Collaborated on API design and implementation, focusing on efficiency and reliability.",
-        "Worked on frontend optimization projects to enhance user experience."
-      ]
-    },
-    {
-      "id": "wellfound-linear-frontend-2026",
-      "title": "Frontend Engineer (React / UI Performance)",
-      "company": "Linear",
-      "location": "Remote (Global)",
-      "remote_type": "remote",
-      "salary_range": "$130,000 - $160,000 / year + Equity",
-      "experience_required": "2-4 years",
-      "requirements": [
-        "React",
-        "Next.js",
-        "TailwindCSS",
-        "State Management",
-        "UI Micro-animations"
-      ],
-      "responsibilities": [
-        "Craft lightning fast issue tracking UI",
-        "Build custom WebGL components"
-      ],
-      "posted_or_updated_date": "2026-09-10",
-      "application_deadline": "2026-09-30",
-      "num_applicants": 45,
-      "open_positions": 2,
-      "company_rating": 4.9,
-      "company_review_snippet": "Craft-obsessed team building world class developer tools.",
-      "application_url": "https://linear.app/careers",
-      "source": "Wellfound / AngelList",
-      "match_score": 40,
-      "match_breakdown": {
-        "skills_30": 15,
-        "title_20": 5,
-        "salary_15": 0,
+        "skills_30": 12,
+        "title_20": 8,
+        "salary_15": 12,
         "deadline_10": 8,
-        "rating_10": 10,
-        "freshness_10": 7,
-        "competition_5": 5
+        "rating_10": 9,
+        "freshness_10": 10,
+        "competition_5": 4
       },
-      "why_suitable": "This role requires React, which matches your skills, but the salary is significantly higher than your target. The role also focuses on UI performance, which may not fully align with your backend expertise.",
-      "cover_letter_draft": "Dear Hiring Manager, I am excited to apply for the Frontend Engineer position at Linear. My experience with React and state management aligns well with your requirements. I am particularly interested in contributing to your UI performance optimizations and crafting high-quality user interfaces.",
       "resume_bullet_rewrites": [
-        "Built responsive web applications using React, focusing on performance and user experience.",
-        "Implemented state management solutions to ensure smooth application workflows.",
-        "Collaborated on UI design projects to enhance visual appeal and functionality."
+        "Architected scalable Node.js and frontend features matching Path's stack",
+        "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+        "Engineered resilient automated tools and API integrations for production services"
       ]
     }
   ],
@@ -607,6 +581,174 @@
       "status": "Applied via Unit Test",
       "applied_at": "2026-10-03T09:50:11.152Z",
       "screenshot_evidence": "/fake/path.png"
+    },
+    {
+      "job": {
+        "id": "eyJqb2JfdGl0bGUiOiJSZW1vdGUgU2VuaW9yIFB5dGhvbiBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IlR1cmluZyIsImh0aWRvY2lkIjoiMHpoa0gyb3NFUWYwREhOWUFBQUFBQT09IiwiZ2wiOiJ1cyIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTM05xVm00M09YUnZiRTlKWW05R2IwTkZlVGg1WjBGR1pVcFZVVXQ0U0V0aVNrcEdiblpvVVRaNWNYWkZjVTFvTXpkZlNUSjZObk5DVTFCdUxYZGpRamxCWkhkZk5HMVZkSE5KZW5oNVdrTmhUR3hsU1VSaE1FbHhRMEo2TTNaeVMwWllXa2hpUkhWa1ZWZzNWalprYjFGSldGQnNPVWxGVkZVMWRIcHpia051ZFVzMGRVSVNGMnAyUkVKaGRIRklSa3RxVkRWT2IxQjBTVk40TkVGSkdpSkJSSE55T1daU1dHaDNOMFUyTW1Gd2FtbzNTa3hDVFdkMVYxaEJVa2w0YW5sUiIsImZjdiI6IjMiLCJmY19pZCI6IjB6aGtIMm9zRVFmMERITllBQUFBQUE9PSJ9",
+        "title": "Remote Senior Python Engineer",
+        "company": "Turing",
+        "location": "Anywhere",
+        "source": "LinkedIn",
+        "posted_date": "2 days ago",
+        "application_url": "https://www.linkedin.com/jobs/view/remote-senior-python-engineer-at-turing-4472895099?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "apply_type": "External Form",
+        "salary_range": "Competitive Market Rate",
+        "job_type": "Contractor",
+        "experience_level": "Senior (5+ yrs)",
+        "required_skills": [
+          "JavaScript",
+          "Python",
+          "Java",
+          "Go",
+          "Rust",
+          "AI"
+        ],
+        "role_summary": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports custom...",
+        "full_description": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports customers in two ways: first, by accelerating frontier research with high-quality data, advanced training pipelines, plus top AI researchers who specialize in software engineering, logical reasoning, STEM, multilinguality, multimodality, and agents; and second, by applying that expertise to help enterprises transform AI from proof of concept into proprietary intelligence with systems that perform reliably, deliver measurable impact, and drive lasting results on the P&L.\n\n\n\n\nIdeal Background:\n\nThis role is ideal for engineers who have built production systems at companies like Google, Microsoft, Apple, Amazon, Meta, or similar high-scale engineering organizations. We especially welcome graduates from top computer science programs such as Stanford, MIT, Carnegie Mellon, UC Berkeley, Georgia Tech, and comparable institutions — though exceptional experience and skill always take precedence over pedigree.\n\n\n\n\nProject Overview:\n\nAs a Software Engineering evaluator, you will create cutting-edge datasets for training, benchmarking, and advancing large language models, collaborating closely with researchers. This includes curating code examples, providing precise solutions, and making corrections — with a primary focus on Python across backend services, data pipelines, and ML infrastructure, alongside JavaScript (including ReactJS), C/C++, Java, Rust, and Go. You will evaluate and refine AI-generated code for efficiency, scalability, and reliability, and work with cross-functional teams to enhance enterprise-level AI-driven coding solutions.\n\n\n\n\nWhat Does a Typical Day Look Like?\n\nWork on AI model training initiatives by curating code examples, building solutions, and correcting code — primarily in Python, with additional work in JavaScript (including ReactJS), C/C++, Java, Rust, and Go.Evaluate and refine AI-generated code to ensure that it is efficient, scalable, and reliable.Collaborate with cross-functional teams to enhance AI-driven coding solutions against industry performance benchmarks.Build agents and automated verification tools in Python that can verify the quality of code and identify error patterns.Hypothesize on steps in the software engineering cycle (prototyping, architecture design, API design, production implementation, launch, experiments, monitoring, operational maintenance) and evaluate model capabilities on them.Design verification mechanisms that can automatically verify a solution to a software engineering task.\n\n\nRequired Skills:\n\nSeveral years of software engineering experience (3 years or more)Strong expertise in Python with deep knowledge of frameworks, tooling, and best practices for building production-grade software.Experience building full-stack applications and deploying scalable software using modern languages and tools.Deep understanding of software architecture, design, development, debugging, and code quality/review assessment.Excellent oral and written communication skills for clear, structured evaluation rationales.\n\n\nEngagement Details:\n\nCommitment: flexible engagement, minimum 10 hrs/week, up to 40 hrs/weekType: Contractor (no medical/paid leave)Duration: 1 month (potential extensions based on performance and fit)Location: Candidates must be based in the United States\n\n\nEvaluation Process:\n\nThe application process takes 15–30 minutes.Completion of an AI video interview is required.",
+        "match_score": 67,
+        "why_suitable": "Strong match (67%) for your background in JavaScript, Python, Java. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+        "cover_letter_draft": "Dear Hiring Manager at Turing,\n\nI am writing to express my strong interest in the Remote Senior Python Engineer position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire Turing's engineering standards and look forward to contributing to your team's success.",
+        "match_breakdown": {
+          "skills_30": 15,
+          "title_20": 10,
+          "salary_15": 12,
+          "deadline_10": 8,
+          "rating_10": 9,
+          "freshness_10": 9,
+          "competition_5": 4
+        },
+        "resume_bullet_rewrites": [
+          "Architected scalable Node.js and frontend features matching Turing's stack",
+          "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+          "Engineered resilient automated tools and API integrations for production services"
+        ]
+      },
+      "applied_at": "2026-10-04T06:46:11.524Z",
+      "status": "Application Page Opened — Pending User Confirmation",
+      "user_confirmed": true
+    },
+    {
+      "job": {
+        "id": "test-apply-job-99",
+        "title": "Test Engineer",
+        "company": "Test Corp",
+        "application_url": "http://localhost:3000/demo_site/apply.html"
+      },
+      "status": "Applied via Unit Test",
+      "applied_at": "2026-10-04T06:58:23.128Z",
+      "screenshot_evidence": "/fake/path.png"
+    },
+    {
+      "job": {
+        "id": "eyJqb2JfdGl0bGUiOiJSZW1vdGUgU2VuaW9yIFB5dGhvbiBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IlR1cmluZyIsImh0aWRvY2lkIjoiMHpoa0gyb3NFUWYwREhOWUFBQUFBQT09IiwiZ2wiOiJ1cyIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTM05xVm00M09YUnZiRTlKWW05R2IwTkZlVGg1WjBGR1pVcFZVVXQ0U0V0aVNrcEdiblpvVVRaNWNYWkZjVTFvTXpkZlNUSjZObk5DVTFCdUxYZGpRamxCWkhkZk5HMVZkSE5KZW5oNVdrTmhUR3hsU1VSaE1FbHhRMEo2TTNaeVMwWllXa2hpUkhWa1ZWZzNWalprYjFGSldGQnNPVWxGVkZVMWRIcHpia051ZFVzMGRVSVNGMnAyUkVKaGRIRklSa3RxVkRWT2IxQjBTVk40TkVGSkdpSkJSSE55T1daU1dHaDNOMFUyTW1Gd2FtbzNTa3hDVFdkMVYxaEJVa2w0YW5sUiIsImZjdiI6IjMiLCJmY19pZCI6IjB6aGtIMm9zRVFmMERITllBQUFBQUE9PSJ9",
+        "title": "Remote Senior Python Engineer",
+        "company": "Turing",
+        "location": "Anywhere",
+        "source": "LinkedIn",
+        "posted_date": "2 days ago",
+        "application_url": "https://www.linkedin.com/jobs/view/remote-senior-python-engineer-at-turing-4472895099?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "apply_type": "External Form",
+        "salary_range": "Competitive Market Rate",
+        "job_type": "Contractor",
+        "experience_level": "Senior (5+ yrs)",
+        "required_skills": [
+          "JavaScript",
+          "Python",
+          "Java",
+          "Go",
+          "Rust",
+          "AI"
+        ],
+        "role_summary": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports custom...",
+        "full_description": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports customers in two ways: first, by accelerating frontier research with high-quality data, advanced training pipelines, plus top AI researchers who specialize in software engineering, logical reasoning, STEM, multilinguality, multimodality, and agents; and second, by applying that expertise to help enterprises transform AI from proof of concept into proprietary intelligence with systems that perform reliably, deliver measurable impact, and drive lasting results on the P&L.\n\n\n\n\nIdeal Background:\n\nThis role is ideal for engineers who have built production systems at companies like Google, Microsoft, Apple, Amazon, Meta, or similar high-scale engineering organizations. We especially welcome graduates from top computer science programs such as Stanford, MIT, Carnegie Mellon, UC Berkeley, Georgia Tech, and comparable institutions — though exceptional experience and skill always take precedence over pedigree.\n\n\n\n\nProject Overview:\n\nAs a Software Engineering evaluator, you will create cutting-edge datasets for training, benchmarking, and advancing large language models, collaborating closely with researchers. This includes curating code examples, providing precise solutions, and making corrections — with a primary focus on Python across backend services, data pipelines, and ML infrastructure, alongside JavaScript (including ReactJS), C/C++, Java, Rust, and Go. You will evaluate and refine AI-generated code for efficiency, scalability, and reliability, and work with cross-functional teams to enhance enterprise-level AI-driven coding solutions.\n\n\n\n\nWhat Does a Typical Day Look Like?\n\nWork on AI model training initiatives by curating code examples, building solutions, and correcting code — primarily in Python, with additional work in JavaScript (including ReactJS), C/C++, Java, Rust, and Go.Evaluate and refine AI-generated code to ensure that it is efficient, scalable, and reliable.Collaborate with cross-functional teams to enhance AI-driven coding solutions against industry performance benchmarks.Build agents and automated verification tools in Python that can verify the quality of code and identify error patterns.Hypothesize on steps in the software engineering cycle (prototyping, architecture design, API design, production implementation, launch, experiments, monitoring, operational maintenance) and evaluate model capabilities on them.Design verification mechanisms that can automatically verify a solution to a software engineering task.\n\n\nRequired Skills:\n\nSeveral years of software engineering experience (3 years or more)Strong expertise in Python with deep knowledge of frameworks, tooling, and best practices for building production-grade software.Experience building full-stack applications and deploying scalable software using modern languages and tools.Deep understanding of software architecture, design, development, debugging, and code quality/review assessment.Excellent oral and written communication skills for clear, structured evaluation rationales.\n\n\nEngagement Details:\n\nCommitment: flexible engagement, minimum 10 hrs/week, up to 40 hrs/weekType: Contractor (no medical/paid leave)Duration: 1 month (potential extensions based on performance and fit)Location: Candidates must be based in the United States\n\n\nEvaluation Process:\n\nThe application process takes 15–30 minutes.Completion of an AI video interview is required.",
+        "match_score": 67,
+        "why_suitable": "Strong match (67%) for your background in JavaScript, Python, Java. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+        "cover_letter_draft": "Dear Hiring Manager at Turing,\n\nI am writing to express my strong interest in the Remote Senior Python Engineer position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire Turing's engineering standards and look forward to contributing to your team's success.",
+        "match_breakdown": {
+          "skills_30": 15,
+          "title_20": 10,
+          "salary_15": 12,
+          "deadline_10": 8,
+          "rating_10": 9,
+          "freshness_10": 9,
+          "competition_5": 4
+        },
+        "resume_bullet_rewrites": [
+          "Architected scalable Node.js and frontend features matching Turing's stack",
+          "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+          "Engineered resilient automated tools and API integrations for production services"
+        ]
+      },
+      "applied_at": "2026-10-04T07:00:03.097Z",
+      "status": "Application Page Opened — Pending User Confirmation",
+      "user_confirmed": true
+    },
+    {
+      "job": {
+        "id": "test-apply-job-99",
+        "title": "Test Engineer",
+        "company": "Test Corp",
+        "application_url": "http://localhost:3000/demo_site/apply.html"
+      },
+      "status": "Applied via Unit Test",
+      "applied_at": "2026-10-04T07:44:04.239Z",
+      "screenshot_evidence": "/fake/path.png"
+    },
+    {
+      "job": {
+        "id": "eyJqb2JfdGl0bGUiOiJSZW1vdGUgU2VuaW9yIFB5dGhvbiBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IlR1cmluZyIsImh0aWRvY2lkIjoiMHpoa0gyb3NFUWYwREhOWUFBQUFBQT09IiwiZ2wiOiJ1cyIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTM05xVm00M09YUnZiRTlKWW05R2IwTkZlVGg1WjBGR1pVcFZVVXQ0U0V0aVNrcEdiblpvVVRaNWNYWkZjVTFvTXpkZlNUSjZObk5DVTFCdUxYZGpRamxCWkhkZk5HMVZkSE5KZW5oNVdrTmhUR3hsU1VSaE1FbHhRMEo2TTNaeVMwWllXa2hpUkhWa1ZWZzNWalprYjFGSldGQnNPVWxGVkZVMWRIcHpia051ZFVzMGRVSVNGMnAyUkVKaGRIRklSa3RxVkRWT2IxQjBTVk40TkVGSkdpSkJSSE55T1daU1dHaDNOMFUyTW1Gd2FtbzNTa3hDVFdkMVYxaEJVa2w0YW5sUiIsImZjdiI6IjMiLCJmY19pZCI6IjB6aGtIMm9zRVFmMERITllBQUFBQUE9PSJ9",
+        "title": "Remote Senior Python Engineer",
+        "company": "Turing",
+        "location": "Anywhere",
+        "source": "LinkedIn",
+        "posted_date": "2 days ago",
+        "application_url": "https://www.linkedin.com/jobs/view/remote-senior-python-engineer-at-turing-4472895099?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+        "apply_type": "External Form",
+        "salary_range": "Competitive Market Rate",
+        "job_type": "Contractor",
+        "experience_level": "Senior (5+ yrs)",
+        "required_skills": [
+          "JavaScript",
+          "Python",
+          "Java",
+          "Go",
+          "Rust",
+          "AI"
+        ],
+        "role_summary": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports custom...",
+        "full_description": "About Us:\n\nBased in San Francisco, California, Turing is the world’s leading research accelerator for frontier AI labs and a trusted partner for global enterprises deploying advanced AI systems. Turing supports customers in two ways: first, by accelerating frontier research with high-quality data, advanced training pipelines, plus top AI researchers who specialize in software engineering, logical reasoning, STEM, multilinguality, multimodality, and agents; and second, by applying that expertise to help enterprises transform AI from proof of concept into proprietary intelligence with systems that perform reliably, deliver measurable impact, and drive lasting results on the P&L.\n\n\n\n\nIdeal Background:\n\nThis role is ideal for engineers who have built production systems at companies like Google, Microsoft, Apple, Amazon, Meta, or similar high-scale engineering organizations. We especially welcome graduates from top computer science programs such as Stanford, MIT, Carnegie Mellon, UC Berkeley, Georgia Tech, and comparable institutions — though exceptional experience and skill always take precedence over pedigree.\n\n\n\n\nProject Overview:\n\nAs a Software Engineering evaluator, you will create cutting-edge datasets for training, benchmarking, and advancing large language models, collaborating closely with researchers. This includes curating code examples, providing precise solutions, and making corrections — with a primary focus on Python across backend services, data pipelines, and ML infrastructure, alongside JavaScript (including ReactJS), C/C++, Java, Rust, and Go. You will evaluate and refine AI-generated code for efficiency, scalability, and reliability, and work with cross-functional teams to enhance enterprise-level AI-driven coding solutions.\n\n\n\n\nWhat Does a Typical Day Look Like?\n\nWork on AI model training initiatives by curating code examples, building solutions, and correcting code — primarily in Python, with additional work in JavaScript (including ReactJS), C/C++, Java, Rust, and Go.Evaluate and refine AI-generated code to ensure that it is efficient, scalable, and reliable.Collaborate with cross-functional teams to enhance AI-driven coding solutions against industry performance benchmarks.Build agents and automated verification tools in Python that can verify the quality of code and identify error patterns.Hypothesize on steps in the software engineering cycle (prototyping, architecture design, API design, production implementation, launch, experiments, monitoring, operational maintenance) and evaluate model capabilities on them.Design verification mechanisms that can automatically verify a solution to a software engineering task.\n\n\nRequired Skills:\n\nSeveral years of software engineering experience (3 years or more)Strong expertise in Python with deep knowledge of frameworks, tooling, and best practices for building production-grade software.Experience building full-stack applications and deploying scalable software using modern languages and tools.Deep understanding of software architecture, design, development, debugging, and code quality/review assessment.Excellent oral and written communication skills for clear, structured evaluation rationales.\n\n\nEngagement Details:\n\nCommitment: flexible engagement, minimum 10 hrs/week, up to 40 hrs/weekType: Contractor (no medical/paid leave)Duration: 1 month (potential extensions based on performance and fit)Location: Candidates must be based in the United States\n\n\nEvaluation Process:\n\nThe application process takes 15–30 minutes.Completion of an AI video interview is required.",
+        "match_score": 67,
+        "why_suitable": "Strong match (67%) for your background in JavaScript, Python, Java. Fits your Python Developer target with competitive salary (Competitive Market Rate) and high company rating.",
+        "cover_letter_draft": "Dear Hiring Manager at Turing,\n\nI am writing to express my strong interest in the Remote Senior Python Engineer position. With my expertise in Javascript, Java, Python, Springboot, I have built resilient web applications and high-throughput backend services. I admire Turing's engineering standards and look forward to contributing to your team's success.",
+        "match_breakdown": {
+          "skills_30": 15,
+          "title_20": 10,
+          "salary_15": 12,
+          "deadline_10": 8,
+          "rating_10": 9,
+          "freshness_10": 9,
+          "competition_5": 4
+        },
+        "resume_bullet_rewrites": [
+          "Architected scalable Node.js and frontend features matching Turing's stack",
+          "Optimized asynchronous application workflows, reducing end-to-end processing latency",
+          "Engineered resilient automated tools and API integrations for production services"
+        ]
+      },
+      "applied_at": "2026-10-04T07:50:48.412Z",
+      "status": "Application Page Opened — Pending User Confirmation",
+      "user_confirmed": true
+    },
+    {
+      "job": {
+        "id": "test-apply-job-99",
+        "title": "Test Engineer",
+        "company": "Test Corp",
+        "application_url": "http://localhost:3000/demo_site/apply.html"
+      },
+      "status": "Applied via Unit Test",
+      "applied_at": "2026-10-04T08:07:20.272Z",
+      "screenshot_evidence": "/fake/path.png"
     }
   ],
   "seenJobIds": [
@@ -621,7 +763,17 @@
     "https://stripe.com/jobs",
     "https://vercel.com/careers",
     "wellfound-linear-frontend-2026",
-    "https://linear.app/careers"
+    "https://linear.app/careers",
+    "eyJqb2JfdGl0bGUiOiJSZW1vdGUgU2VuaW9yIFB5dGhvbiBFbmdpbmVlciIsImNvbXBhbnlfbmFtZSI6IlR1cmluZyIsImh0aWRvY2lkIjoiMHpoa0gyb3NFUWYwREhOWUFBQUFBQT09IiwiZ2wiOiJ1cyIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTM05xVm00M09YUnZiRTlKWW05R2IwTkZlVGg1WjBGR1pVcFZVVXQ0U0V0aVNrcEdiblpvVVRaNWNYWkZjVTFvTXpkZlNUSjZObk5DVTFCdUxYZGpRamxCWkhkZk5HMVZkSE5KZW5oNVdrTmhUR3hsU1VSaE1FbHhRMEo2TTNaeVMwWllXa2hpUkhWa1ZWZzNWalprYjFGSldGQnNPVWxGVkZVMWRIcHpia051ZFVzMGRVSVNGMnAyUkVKaGRIRklSa3RxVkRWT2IxQjBTVk40TkVGSkdpSkJSSE55T1daU1dHaDNOMFUyTW1Gd2FtbzNTa3hDVFdkMVYxaEJVa2w0YW5sUiIsImZjdiI6IjMiLCJmY19pZCI6IjB6aGtIMm9zRVFmMERITllBQUFBQUE9PSJ9",
+    "eyJqb2JfdGl0bGUiOiJQeXRob24gU29mdHdhcmUgRW5naW5lZXIg4oCTIFdvcmsgRnJvbSBIb21lIiwiY29tcGFueV9uYW1lIjoiSVQgUmVjcnVpdGVycyBmb3IgVGVjaCBKb2JzIC0gaXRyZWNydWl0ZXJzLnRlY2hub2xvZ3kiLCJodGlkb2NpZCI6ImlITU5mR2VwS3NjMUxmSWlBQUFBQUE9PSIsImdsIjoidXMiLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwU1doVVRVUjVTUzAwVDFGd2JGTnJabGhqTW5CV09FeGhYMU5JYzBWSGJuaGpXbVF4U2toc1YxVmhNelpYUkVaVldDMXBZM1o2ZURWS1NEWjVhblp1UkhaUWJWbzFRV3hKWDNwcFRubDZRamhMZW1wMlRuVlJYMU56UTBNMmNIWjVOa1pJYkVSSE9XTXhTRXA2UkhWaFdYcEZRMlpFY1RKVGJHSnNaV1Y2VDBOTU4xb3pXWElTRjJwMlJFSmhkSEZJUmt0cVZEVk9iMUIwU1ZONE5FRkpHaUpCUkhOeU9XWlRhak5SUW1rdFJXSlZNRE5tV1daWlRtUndZakk0Y21aVE1VcFIiLCJmY3YiOiIzIiwiZmNfaWQiOiJpSE1OZkdlcEtzYzFMZklpQUFBQUFBPT0ifQ==",
+    "eyJqb2JfdGl0bGUiOiJTZW5pb3IgU29mdHdhcmUgRW5naW5lZXIgKGZ1bGx5IHJlbW90ZSBkb21lc3RpY2FsbHkgaW4gVVNBKSIsImNvbXBhbnlfbmFtZSI6Ik1PTFRFTiBDbG91ZCIsImh0aWRvY2lkIjoicFZyQ1hxOFNuN2JDNW90MUFBQUFBQT09IiwiZ2wiOiJ1cyIsImhsIjoiZW4iLCJmYyI6IkVzd0JDb3dCUVVwcFZEUjBTMUUzVjJWVmVVZFFSV0p4UkZrMGNGSlZhbVpWU1hObFlYbDZlVE5NUldGWllUVmxlWGhoZVc5SGRIVTVhMUpUYUUwdFNub3llalkwV0V0NVFuTmZRVXd3ZFhGRE5qWlBSeTB4YmxseVpWVndTRjh4V1RVMlVGbDJSakpEZDJkUlVHRldNWGgxUzFobk1EbFNXWE5GUlRoRFFUUlhOMEZ0UWkxQ1VWTlJUMmRmUVRFemRrUVNGMnAyUkVKaGRIRklSa3RxVkRWT2IxQjBTVk40TkVGSkdpSkJSSE55T1daUmFWTkNkV3d6VjIxUk1VSlpVVTlhUzNOUk5uUjBOMUZaYkc5UiIsImZjdiI6IjMiLCJmY19pZCI6InBWckNYcThTbjdiQzVvdDFBQUFBQUE9PSJ9",
+    "eyJqb2JfdGl0bGUiOiJTciBTb2Z0d2FyZSBFbmdpbmVlciAtIEh5YnJpZCAoSGlyaW5nIGFsbCBsZXZlbHMpIFJlbW90ZSAvIFRlbGVjb21tdXRlIEpvYnMiLCJjb21wYW55X25hbWUiOiJDb2Rlc2NyYXRjaCBMTEMiLCJodGlkb2NpZCI6IkdORFhHTEx2UDI2M3EtblhBQUFBQUE9PSIsImdsIjoidXMiLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwUzBsamVFRkVVMVpCU3poaVJYRmlTV1JmTjFSalZVOWxTVmhIZGxwalFpMXZNV2RTUWpSNFZXc3RPRXhuVlZoV1dYRk1VbE4zU2toQk5sSjFRbEI1Y0hZMVNVVjVURWxtYUMxb05qaHpSMGRJVGtGU1ZETnhjVmhrZERKUVRWbEJZV05WVlVOeWVVcGtNbUZMVTJaSk9XaFZPWE51V2xKclluWjFTV2h1YzNKdFNsaHpURk1TRjJwMlJFSmhkSEZJUmt0cVZEVk9iMUIwU1ZONE5FRkpHaUpCUkhOeU9XWlVhRXRxVkhOWk5UUjRaa3BXYkZWb1owZFdNbE5PVUdWVmRHRkIiLCJmY3YiOiIzIiwiZmNfaWQiOiJHTkRYR0xMdlAyNjNxLW5YQUFBQUFBPT0ifQ==",
+    "eyJqb2JfdGl0bGUiOiJTdGFmZiBTb2Z0d2FyZSBFbmdpbmVlciAtIFByb3ZpZGVyIEdyb3d0aCBcdTAwMjYgQWN0aXZhdGlvbiAoUmVtb3RlKSIsImNvbXBhbnlfbmFtZSI6IlBhdGgiLCJodGlkb2NpZCI6Ikd2amo5X21mVHY0bXRxR0NBQUFBQUE9PSIsImdsIjoidXMiLCJobCI6ImVuIiwiZmMiOiJFc3dCQ293QlFVcHBWRFIwVERRMmIxWlFURUkxU201T2EzVjJiREJ1WlZKSGNESlRjbkJTYUVSUE0wbEZXakZPYlVWVGFtdDFkbTk2U2xwT1NFWTFhRE5uUjJwTWJUQlBhVTFhV0ROd2VtWlNabmQwVkdwTlpFZGplVVJzZGxoWk5qSnNjRGQyZEZKMFQwcFNOVlJ4V1Y5cE16RlBkUzFmY0c0emQzWm5MVlF4WnpGeE5YZHJSMU5JZGtodFkzQlBiazBTRjJwMlJFSmhkSEZJUmt0cVZEVk9iMUIwU1ZONE5FRkpHaUpCUkhOeU9XWlRWM2hpU25OSVJXZFZWM1ZVT0dwZlVIVjJNbWh5WlZOVlQyeDMiLCJmY3YiOiIzIiwiZmNfaWQiOiJHdmpqOV9tZlR2NG10cUdDQUFBQUFBPT0ifQ==",
+    "https://www.linkedin.com/jobs/view/remote-senior-python-engineer-at-turing-4472895099?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    "https://www.itrecruiters.technology/job/python-software-engineer-work-from-home/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    "https://wellfound.com/jobs/3544540-senior-software-engineer-fully-remote-domestically-in-usa?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    "https://www.clearancejobs.com/jobs/9213791/sr-software-engineer-hybrid-hiring-all-levels?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    "https://jobgether.com/offer/6ac0854a8a27695aea1fb309-staff-software-engineer---provider-growth-activation-remote?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic"
   ],
-  "lastDailyDate": "2026-09-12"
+  "lastDailyDate": "2026-10-04"
 }

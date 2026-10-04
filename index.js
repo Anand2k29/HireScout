@@ -44,6 +44,7 @@ const C = {
   bgCyan: "\x1b[46m", bgMag: "\x1b[45m", bgBlue: "\x1b[44m", bgGreen: "\x1b[42m",
 };
 const STEP_DELAY_MS = 50; // ⚡ Ultra-fast 50ms step latency
+const loggedInDomains = new Set();
 
 // ─── Terminal helpers (voice-aware & hybrid input) ───────────────────
 async function ask(question, voiceDuration = 5) {
@@ -180,7 +181,15 @@ ${C.cyan}╰──────────────────────�
       const pick = await ask(`  Choose job (1-${top5.length}): `);
       const selJob = top5[parseInt(pick) - 1] || top5[0];
       if (selJob) {
-        return handleJobSelection(selJob);
+        const jobResult = await handleJobSelection(selJob);
+        if (!jobResult) return showMenu();
+        if (jobResult.goal) {
+          if (jobResult.job) {
+            recordAppliedJob(jobResult.job, "Application Page Opened — Pending User Confirmation");
+          }
+          return jobResult.goal;
+        }
+        return showMenu();
       }
       return showMenu();
     }
@@ -231,6 +240,7 @@ ${C.cyan}╰──────────────────────�
 
 // ─── Planner (Gemini-only, no OpenRouter middleman) ──────────────────
 function getFallbackPlan(goal, profile) {
+  goal = String(goal || "");
   const goalLower = goal.toLowerCase();
 
   // 1. Direct URL navigation goal (single or batch Job Application URLs)
@@ -730,18 +740,36 @@ async function executeStepSmart(context, pageInput, stepDescription, recordedAct
 
   // ── Meta-steps ──
   if (stepLower === "wait_for_login" || stepLower.includes("wait_for_login") || stepLower.includes("wait for login")) {
+    let currentDomain = "";
+    try { currentDomain = new URL(page.url()).hostname; } catch {}
+
     const pageType = await detectPageType(page);
-    if (pageType === "login") {
+    if (pageType === "login" && (!currentDomain || !loggedInDomains.has(currentDomain))) {
       await updateOverlayStatus(page, "⏸️ Waiting for you to log in...");
       log("🔐", "═══════════════════════════════════════════════════", "yellow");
-      log("🔐", "  LOGIN REQUIRED — Please log in manually!", "yellow");
+      log("🔐", "  LOGIN REQUIRED — Please log in manually or skip", "yellow");
       log("🔐", "═══════════════════════════════════════════════════", "yellow");
-      narrate("Login required. Please log in manually.");
+      narrate("Login required. Please log in manually or choose to skip this website.");
+
+      console.log(`\n  ${C.yellow}Login Required Options:${C.r}`);
+      console.log(`   1  ✅ Log in manually in browser & press ENTER`);
+      console.log(`   2  ⏩ Skip this website & return to job choices\n`);
+
+      const loginChoice = await ask(`  Enter choice (1 or 2, default=1): `);
+      if (loginChoice.trim() === "2" || loginChoice.trim().toLowerCase() === "s" || loginChoice.trim().toLowerCase() === "skip") {
+        log("⏩", "Skipping this website requiring login as requested...", "yellow");
+        narrate("Skipping this website.");
+        const skipErr = new Error("SKIP_WEBSITE");
+        skipErr.isSkip = true;
+        throw skipErr;
+      }
+
       await waitForEnter("\n  → Press ENTER after you've logged in... ");
+      if (currentDomain) loggedInDomains.add(currentDomain);
       log("✅", "Login complete!", "green");
       recordedActions.push({ action: "wait_for_login", description: "Manual login" });
     } else {
-      log("ℹ️", "Already logged in — skipping.", "cyan");
+      log("ℹ️", "Already logged in — skipping login prompt.", "cyan");
       recordedActions.push({ action: "skip", description: "Login not needed" });
     }
     saveWorkflow(goal, recordedActions); // ⚡ Incremental save
@@ -803,12 +831,30 @@ async function executeStepSmart(context, pageInput, stepDescription, recordedAct
   }
 
   // ── Auto-detect login/payment pages ──
+  let currentDomain = "";
+  try { currentDomain = new URL(page.url()).hostname; } catch {}
+
   const pageType = await detectPageType(page);
-  if (pageType === "login") {
-    await updateOverlayStatus(page, "⏸️ Login page detected — waiting for you...");
-    log("🔐", "Login page auto-detected! Please log in manually.", "yellow");
-    narrate("Login page detected. Please log in.");
+  if (pageType === "login" && (!currentDomain || !loggedInDomains.has(currentDomain))) {
+    await updateOverlayStatus(page, "⏸️ Login page detected — waiting for option...");
+    log("🔐", "Login page auto-detected!", "yellow");
+    narrate("Login page detected. Choose to log in or skip this website.");
+
+    console.log(`\n  ${C.yellow}Login Page Options:${C.r}`);
+    console.log(`   1  ✅ Log in manually in browser, then press ENTER`);
+    console.log(`   2  ⏩ Skip this website & return to job choices\n`);
+
+    const choice = await ask(`  Enter choice (1 or 2, default=1): `);
+    if (choice.trim() === "2" || choice.trim().toLowerCase() === "s" || choice.trim().toLowerCase() === "skip") {
+      log("⏩", "Skipping website requiring login...", "yellow");
+      narrate("Skipping website.");
+      const skipErr = new Error("SKIP_WEBSITE");
+      skipErr.isSkip = true;
+      throw skipErr;
+    }
+
     await waitForEnter("\n  → Press ENTER after logging in... ");
+    if (currentDomain) loggedInDomains.add(currentDomain);
     recordedActions.push({ action: "wait_for_login", description: "Auto-detected" });
     await injectOverlay(page);
   } else if (pageType === "payment") {
@@ -981,6 +1027,20 @@ ${C.cyan}───────────────────────�
     return runSlabRoute(); // Return to menu after profile setup
   }
 
+  // Defensive: if any menu path returned an object with a .goal property, unwrap it
+  if (goal && typeof goal === "object" && goal.goal) {
+    if (goal.job) {
+      recordAppliedJob(goal.job, "Application Page Opened — Pending User Confirmation");
+    }
+    goal = goal.goal;
+  }
+
+  // Ensure goal is always a string
+  if (typeof goal !== "string") {
+    log("⚠️", `Invalid goal type (${typeof goal}). Returning to menu.`, "yellow");
+    return runSlabRoute();
+  }
+
   log("🎯", `Goal: "${goal}"`, "bright");
   narrate(`Starting: ${goal}`);
 
@@ -988,7 +1048,7 @@ ${C.cyan}───────────────────────�
   let profile = loadProfile();
   if (!profile) {
     const wantProfile = await ask("  👤 Set up your profile for auto-filling forms? (y/n): ");
-    if (wantProfile.toLowerCase() === "y") {
+    if ((wantProfile || "").toLowerCase() === "y") {
       profile = await setupProfile();
     }
   }
@@ -1113,15 +1173,27 @@ ${C.cyan}───────────────────────�
 
   const recordedActions = [];
 
-  for (let i = 0; i < plan.length; i++) {
-    const step = plan[i];
-    const activePage = getActivePage(context, page);
-    logStep(i, plan.length, step);
-    await updateOverlayStatus(activePage, `Step ${i + 1}/${plan.length}: ${step}`);
-    await executeStepSmart(context, activePage, step, recordedActions, profile, goal);
+  try {
+    for (let i = 0; i < plan.length; i++) {
+      const step = plan[i];
+      const activePage = getActivePage(context, page);
+      logStep(i, plan.length, step);
+      await updateOverlayStatus(activePage, `Step ${i + 1}/${plan.length}: ${step}`);
+      await executeStepSmart(context, activePage, step, recordedActions, profile, goal);
 
-    // Re-inject overlay after navigations
-    try { await injectOverlay(getActivePage(context, page)); } catch { /* ignore */ }
+      // Re-inject overlay after navigations
+      try { await injectOverlay(getActivePage(context, page)); } catch { /* ignore */ }
+    }
+  } catch (err) {
+    if (err && (err.message === "SKIP_WEBSITE" || err.isSkip)) {
+      log("⏩", "Website skipped due to login wall. Cleaning up session...", "yellow");
+      try { await updateOverlayStatus(page, "⏩ Website Skipped"); } catch {}
+      narrate("Website skipped.");
+      await context.close();
+      cleanup();
+      return { skipped: true };
+    }
+    throw err;
   }
 
   // Final save (marks workflow as complete/success)

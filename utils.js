@@ -581,7 +581,7 @@ export function extractCoreEntity(str) {
 
 export function getCachedWorkflow(goal) {
   const mem = loadMemory();
-  const key = goal.toLowerCase().trim();
+  const key = String(goal || "").toLowerCase().trim();
 
   // 1. Direct exact match (must be completed successfully with positive Q-value)
   if (
@@ -629,7 +629,7 @@ export function getCachedWorkflow(goal) {
 
 export function saveWorkflow(goal, steps, complete = false, durationMs = 3000) {
   const mem = loadMemory();
-  const key = goal.toLowerCase().trim();
+  const key = String(goal || "").toLowerCase().trim();
   const existing = mem[key] || {};
 
   const prevQ = existing.q_value ?? (complete ? 70 : -30);

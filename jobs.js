@@ -14,6 +14,7 @@ import { loadProfile, getAutoFillContext } from "./profile.js";
 import { runResumePipeline, sendApplicationEmail } from "./prompts/pipeline.js";
 import { searchSerpApiJobs } from "./serpapi.js";
 import { rankJobsDeterministically, scoreJob, compareJobs } from "./scorer.js";
+import { executeMultiTabApply } from "./apply.js";
 
 const JOB_HISTORY_FILE = path.resolve("./job_history.json");
 
@@ -163,6 +164,7 @@ ${J.cyan}╰──────────────────────�
 
   console.log(`  ${J.bright}Dashboard Actions:${J.reset}`);
   console.log(`   ${J.green}${J.bright}[1-5]${J.reset} : ${J.bright}🚀 Open Live Chromium Browser → Navigate to Career Page & Auto-Apply${J.reset}`);
+  console.log(`   ${J.green}${J.bright}[ B ]${J.reset} : ${J.bright}⚡ Multi-Tab Simultaneous Batch Auto-Apply (Open & Auto-Fill 10 Jobs across 10 visible browser tabs simultaneously)${J.reset}`);
   console.log(`   ${J.green}${J.bright}[ V ]${J.reset} : ${J.bright}🌐 Visual Apply ALL Top 5 → Open Browser for All Career Pages${J.reset}`);
   console.log(`   ${J.cyan}[ C ]${J.reset} : ${J.bright}📊 Compare 2 Jobs Side-by-Side (7-Signal Breakdown)${J.reset}`);
   console.log(`   ${J.cyan}[ D ]${J.reset} : View detailed AI Cover Letter & Resume Bullets for a job`);
@@ -170,7 +172,7 @@ ${J.cyan}╰──────────────────────�
   console.log(`   ${J.cyan}[ R ]${J.reset} : Refresh search target title & location`);
   console.log(`   ${J.cyan}[ M ]${J.reset} : Return to Main Menu\n`);
 
-  const choice = await askInput(`  ${J.bright}Enter choice (1-5, V, C, D, S, R, M):${J.reset} `);
+  const choice = await askInput(`  ${J.bright}Enter choice (1-5, B, V, C, D, S, R, M):${J.reset} `);
   const choiceUpper = choice.toUpperCase();
 
   // Helper: build a browser goal for selected jobs
@@ -182,6 +184,14 @@ ${J.cyan}╰──────────────────────�
       job: selectedJobs[0],
       goal: `Navigate to ${selectedJobs[0].application_url}. Open job application pages for ${jobDescriptions}, fill contact information using candidate profile (${profStr}), paste tailored cover letters, and PAUSE BEFORE SUBMITTING to ask user for explicit confirmation.`,
     };
+  }
+
+  // [B] Multi-Tab Simultaneous Batch Auto-Apply across 10 browser tabs
+  if (choiceUpper === "B") {
+    const rawJobs = await discoverRawJobs(profile.desired_role || "Software Engineer", profile.city || "Remote");
+    const ranked10 = await rankAndFilterJobs(rawJobs, profile);
+    await executeMultiTabApply(ranked10.slice(0, 10), profile);
+    return await renderJobDashboard();
   }
 
   // [V] Visual Apply ALL top 5 → immediate browser launch
