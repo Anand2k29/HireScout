@@ -10,10 +10,6 @@
 ## 🎬 Live Product Video Demonstration
 
 <div align="center">
-  <iframe width="100%" height="450" src="https://www.youtube.com/embed/Fde3cAimGYY" title="HireScout Live Demo — SerpApi India Hackathon 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-
-<div align="center">
   <a href="https://www.youtube.com/watch?v=Fde3cAimGYY" target="_blank">
     <img src="./thumbnail.png" alt="Click to Play HireScout Video Demo on YouTube" width="100%" style="border-radius: 12px; border: 2px solid #38bdf8;" />
   </a>
