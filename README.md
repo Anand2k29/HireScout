@@ -15,7 +15,7 @@
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=Fde3cAimGYY" target="_blank">
-    <img src="https://img.youtube.com/vi/Fde3cAimGYY/maxresdefault.jpg" alt="Click to Play HireScout Video Demo on YouTube" width="100%" style="border-radius: 12px; border: 2px solid #38bdf8;" />
+    <img src="./thumbnail.png" alt="Click to Play HireScout Video Demo on YouTube" width="100%" style="border-radius: 12px; border: 2px solid #38bdf8;" />
   </a>
   <p>▶️ <strong><a href="https://www.youtube.com/watch?v=Fde3cAimGYY" target="_blank">Click Here to Play Full Demo Video on YouTube (https://youtu.be/Fde3cAimGYY)</a></strong></p>
 </div>
