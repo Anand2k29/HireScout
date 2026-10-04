@@ -106,7 +106,7 @@ test("SerpApi Integration", async (t) => {
     delete process.env.SERPAPI_KEY; // test with mock generator to populate cache cleanly
     process.env.SERPAPI_CACHE = "true";
 
-    const cacheFile = path.resolve("./.kairo_temp/serpapi_cache.json");
+    const cacheFile = path.resolve("./.hirescout_temp/serpapi_cache.json");
     
     try {
       // First fetch creates cache or returns cached

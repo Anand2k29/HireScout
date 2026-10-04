@@ -43,7 +43,7 @@ export function appendRunTrace(stageName, inputData, outputData) {
  * Executes the complete 9-Stage Resume & Application Agent Pipeline
  */
 export async function runResumePipeline(job, profile) {
-  log("🚀", `Starting KAIRO Resume & Application Agent Pipeline for "${job.title}" at ${job.company}...`, "cyan");
+  log("🚀", `Starting HireScout Resume & Application Agent Pipeline for "${job.title}" at ${job.company}...`, "cyan");
 
   const jobDescText = `
 Role: ${job.title}
@@ -71,7 +71,7 @@ Experience Years: ${profile.experience_years || "2-4 years"}
 Verified Skills: ${profile.skills || "JavaScript, TypeScript, Node.js, React, Python, Automation"}
 Summary: ${profile.resume_summary || "Full Stack Engineer with experience building scalable web applications and automated workflows."}
 Verified Projects:
-- KAIRO: Autonomous browser & application assistant using dual-model LLM routing, Playwright, and local workflow Q-cache.
+- HireScout: Autonomous browser & application assistant using dual-model LLM routing, Playwright, and local workflow Q-cache.
 - API Performance Suite: Micro-services optimization project reducing latency by 35%.
   `.trim();
 

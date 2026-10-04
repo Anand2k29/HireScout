@@ -32,7 +32,7 @@ export const BRANDING = {
 
   // Temp & Cache Directories
   tempDir: ".hirescout_temp",
-  legacyTempDir: ".kairo_temp",
+  legacyTempDir: ".hirescout_temp",
 
   // Console Banners & ASCII Art
   headerBanner: `

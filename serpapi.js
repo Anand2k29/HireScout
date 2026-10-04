@@ -10,7 +10,7 @@ import path from "path";
 import crypto from "crypto";
 import { log } from "./utils.js";
 
-const CACHE_DIR = path.resolve("./.kairo_temp");
+const CACHE_DIR = path.resolve("./.hirescout_temp");
 const CACHE_FILE = path.join(CACHE_DIR, "serpapi_cache.json");
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
 

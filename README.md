@@ -7,6 +7,16 @@
 
 ---
 
+## 🎬 Live Product Video Demonstration
+
+[![HireScout Live Video Demo](https://img.youtube.com/vi/Fde3cAimGYY/maxresdefault.jpg)](https://youtu.be/Fde3cAimGYY "Click to Watch HireScout Live Demo on YouTube")
+
+> 🎥 **Watch Full Demonstration on YouTube**: [https://youtu.be/Fde3cAimGYY](https://youtu.be/Fde3cAimGYY)  
+> ⚡ *Features live SerpApi Google Jobs query, 7-Signal deterministic match scoring, side-by-side terminal matrix comparison, simultaneous 10-tab parallel Playwright auto-apply, and Section 9 human confirmation gate.*
+
+---
+
+
 ## 🚨 1. Problem Statement (PS)
 
 Modern technical job hunting is fragmented, time-consuming, and inefficient:
