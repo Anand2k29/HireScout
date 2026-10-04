@@ -9,9 +9,17 @@
 
 ## 🎬 Live Product Video Demonstration
 
-[![HireScout Live Video Demo](https://img.youtube.com/vi/Fde3cAimGYY/maxresdefault.jpg)](https://youtu.be/Fde3cAimGYY "Click to Watch HireScout Live Demo on YouTube")
+<div align="center">
+  <iframe width="100%" height="450" src="https://www.youtube.com/embed/Fde3cAimGYY" title="HireScout Live Demo — SerpApi India Hackathon 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-> 🎥 **Watch Full Demonstration on YouTube**: [https://youtu.be/Fde3cAimGYY](https://youtu.be/Fde3cAimGYY)  
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=Fde3cAimGYY" target="_blank">
+    <img src="https://img.youtube.com/vi/Fde3cAimGYY/maxresdefault.jpg" alt="Click to Play HireScout Video Demo on YouTube" width="100%" style="border-radius: 12px; border: 2px solid #38bdf8;" />
+  </a>
+  <p>▶️ <strong><a href="https://www.youtube.com/watch?v=Fde3cAimGYY" target="_blank">Click Here to Play Full Demo Video on YouTube (https://youtu.be/Fde3cAimGYY)</a></strong></p>
+</div>
+
 > ⚡ *Features live SerpApi Google Jobs query, 7-Signal deterministic match scoring, side-by-side terminal matrix comparison, simultaneous 10-tab parallel Playwright auto-apply, and Section 9 human confirmation gate.*
 
 ---
